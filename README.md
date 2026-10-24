@@ -24,8 +24,9 @@ Static website for DNAProved, a New Jersey DNA lab offering bird DNA sexing, DNA
 
 1. Go to [app.netlify.com/drop](https://app.netlify.com/drop) (sign in first so the site is saved to your account).
 2. Drag `DNAProved-netlify.zip` itself onto the page. If you unzip it instead, drag the folder whose top level contains `index.html`, never a folder above it, or the site ends up one level too deep and the home page shows "That page isn't here".
-3. Netlify sees `package.json`, installs the chat function's dependency and publishes. Afterwards open the site's **Functions** page and check that `chat` is listed. If it isn't, use the GitHub method below; until then the chat widget answers from its built-in FAQ.
-4. Then do steps 2 and 3 of the GitHub method (API key and form notifications).
+3. The drag-and-drop zip is static only: the pages, `assets/` and a `_headers` file, with no `package.json`, `netlify.toml` or functions, so Netlify publishes it without a build. (A zip containing `package.json` makes Drop attempt a build, which failed at "Initializing".)
+4. The AI chat function isn't included in a drag-and-drop deploy, so the chat widget answers from its built-in FAQ. For the full AI assistant, deploy from GitHub as below.
+5. Order emails: in **Forms**, enable form detection, redeploy, then add the email notification described in step 3 of the GitHub method.
 
 ## Deploy from GitHub
 
