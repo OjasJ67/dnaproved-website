@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start an order | DNAProved</title>
+  <meta name="description" content="Order bird DNA sexing, DNA species ID, eDNA water screening or fermentation microbe testing from DNAProved. Choose a request, add your details and send it to the lab.">
+  <meta name="theme-color" content="#0e2a3b">
+  <meta property="og:title" content="Start an order | DNAProved">
+  <meta property="og:image" content="/assets/img/og-image.jpg">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="stylesheet" href="./assets/css/site.css">
+  <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("js-motion");window.__motionTimer=setTimeout(function(){document.documentElement.classList.add("motion-fallback")},3000)}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="./index.html" aria-label="DNAProved home"><img src="./assets/img/logo.png" alt="DNAProved" width="694" height="258"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="./services.html">Services</a>
+        <a href="./science.html">The science</a>
+        <a href="./services.html#pricing">Pricing</a>
+        <a href="./services.html#compare">Compare</a>
+        <a class="btn btn--small" href="./order.html" aria-current="page">Start an order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero wrap" aria-labelledby="order-title">
+      <div class="page-hero__grid">
+        <div class="page-hero__copy">
+          <h1 id="order-title" data-split>Start an order.</h1>
+          <p class="lede" data-reveal>Pick what you need and we'll fill in an email for you. Add your details, change anything you like and send it. It goes straight to the lab at dna.proved@gmail.com.</p>
+        </div>
+        <div class="page-hero__media" data-reveal>
+          <ol class="key-points" style="list-style:none">
+            <li><strong>Choose a request.</strong> Each one comes with a ready-made message.</li>
+            <li><strong>Add your name and email.</strong> We need both to reply.</li>
+            <li><strong>Send it.</strong> We reply with your collection kit, payment details and next steps. Nothing is charged on this page.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--tight field-2" aria-labelledby="compose-title">
+      <div class="wrap">
+        <h2 id="compose-title" class="visually-hidden">Compose your request</h2>
+        <form class="order" name="order-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="./order.html?sent=1" novalidate data-order>
+          <input type="hidden" name="form-name" value="order-inquiry">
+          <p class="visually-hidden"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+          <fieldset class="order__choices">
+            <legend class="h3" style="margin-bottom:14px">What do you need?</legend>
+            <label class="choice"><input type="radio" name="request" value="Bird DNA sexing" data-key="bird" checked><div><strong>Bird DNA sexing</strong><span>Male or female, $18 per bird. Free kit.</span></div></label>
+            <label class="choice"><input type="radio" name="request" value="DNA species ID" data-key="species"><div><strong>DNA species ID</strong><span>Isopods, insects, fish, mushrooms. $40 each.</span></div></label>
+            <label class="choice"><input type="radio" name="request" value="eDNA water screening" data-key="edna"><div><strong>eDNA water screening</strong><span>Ponds and lakes. $135 per sample.</span></div></label>
+            <label class="choice"><input type="radio" name="request" value="Fermentation microbes" data-key="ferment"><div><strong>Fermentation microbes</strong><span>Microbe ID, brewery QC plan, sourdough starter.</span></div></label>
+            <label class="choice"><input type="radio" name="request" value="Bulk or partnership" data-key="bulk"><div><strong>Bulk order or partnership</strong><span>Clubs, shops, schools, consultants, labs.</span></div></label>
+            <label class="choice"><input type="radio" name="request" value="General question" data-key="question"><div><strong>A question</strong><span>Anything else you'd like to ask.</span></div></label>
+          </fieldset>
+
+          <div class="order__form">
+            <div class="row-2">
+              <div class="field">
+                <label for="f-name">Your name <span class="muted">(required)</span></label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="120" aria-describedby="e-name">
+                <span class="error" id="e-name" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="f-company">Company or organization <span class="muted">(optional)</span></label>
+                <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="160">
+              </div>
+            </div>
+            <div class="row-2">
+              <div class="field">
+                <label for="f-email">Email <span class="muted">(required)</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200" aria-describedby="e-email">
+                <span class="error" id="e-email" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone <span class="muted">(optional)</span></label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-subject">Subject</label>
+              <input id="f-subject" name="subject" type="text" maxlength="200" value="Bird DNA sexing order">
+            </div>
+            <div class="field">
+              <label for="f-message">Your message</label>
+              <span class="hint" id="h-message">Fill in the blanks and add anything else we should know.</span>
+              <textarea id="f-message" name="message" required maxlength="6000" aria-describedby="h-message e-message"></textarea>
+              <span class="error" id="e-message" aria-live="polite"></span>
+            </div>
+            <div class="actions">
+              <button class="btn" type="submit" data-send>Send to DNAProved</button>
+              <button class="btn btn--quiet" type="button" data-mailto>Use my email app instead</button>
+            </div>
+            <div class="status" role="status" aria-live="polite" data-status></div>
+            <p class="small muted">Your request is sent to dna.proved@gmail.com and used only to reply to you. We never share it.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="next-title">
+      <div class="wrap cta">
+        <h2 id="next-title" data-reveal>Not sure what to order?</h2>
+        <div class="cta__side" data-reveal>
+          <p class="lede">Ask the assistant in the corner, read how each test works, or check prices and discounts first.</p>
+          <div class="actions"><a class="btn btn--quiet" href="./services.html#pricing">Prices and discounts</a><a class="btn btn--quiet" href="./science.html">How the tests work</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-word" aria-hidden="true"><span class="d">DNA</span><span class="p">Proved</span></div>
+      <div class="footer-cols">
+        <div><h2>Services</h2><a href="./services.html#birds">Bird DNA sexing</a><a href="./services.html#species">DNA species ID</a><a href="./services.html#edna">eDNA water screening</a><a href="./services.html#ferment">Fermentation microbes</a></div>
+        <div><h2>Learn</h2><a href="./science.html">The science</a><a href="./services.html#pricing">Prices and discounts</a><a href="./services.html#compare">How we compare</a><a href="./services.html#faq">Questions</a></div>
+        <div><h2>Contact</h2><a href="mailto:dna.proved@gmail.com">dna.proved@gmail.com</a><p>New Jersey, USA. Drop-off by appointment.</p><a href="./order.html">Start an order</a></div>
+        <div><h2>Policies</h2><a href="./services.html#policy">Sample acceptance</a><a href="./credits.html">Picture credits</a></div>
+      </div>
+      <div class="footer-legal">
+        <p>© 2026 DNAProved. We test animal, environmental and microbial samples only, never human samples.</p>
+        <p>eDNA and seafood results are screening information, not regulatory findings.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="./assets/js/site.js" defer></script>
+  <script src="./assets/js/order.js" defer></script>
+  <script src="./assets/js/chat.js" defer></script>
+</body>
+</html>

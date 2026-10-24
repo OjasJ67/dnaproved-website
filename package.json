@@ -1,0 +1,12 @@
+{
+  "name": "dnaproved-site",
+  "private": true,
+  "type": "module",
+  "description": "DNAProved website: static pages plus a Netlify function for the chat assistant.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

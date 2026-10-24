@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The science | How PCR, gels and DNA sequencing work | DNAProved</title>
+  <meta name="description" content="How DNAProved's tests work: DNA extraction, PCR, gel electrophoresis, bird sexing with the CHD1 gene, Sanger sequencing, DNA barcoding, eDNA and microbe identification, with peer-reviewed references.">
+  <meta name="theme-color" content="#0e2a3b">
+  <meta property="og:title" content="The science behind DNAProved">
+  <meta property="og:image" content="/assets/img/og-image.jpg">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="stylesheet" href="./assets/css/site.css">
+  <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("js-motion");window.__motionTimer=setTimeout(function(){document.documentElement.classList.add("motion-fallback")},3000)}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="./index.html" aria-label="DNAProved home"><img src="./assets/img/logo.png" alt="DNAProved" width="694" height="258"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="./services.html">Services</a>
+        <a href="./science.html" aria-current="page">The science</a>
+        <a href="./services.html#pricing">Pricing</a>
+        <a href="./services.html#compare">Compare</a>
+        <a class="btn btn--small" href="./order.html">Start an order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero wrap" aria-labelledby="sci-title">
+      <div class="page-hero__grid">
+        <div class="page-hero__copy">
+          <h1 id="sci-title" data-split>The science, step by step.</h1>
+          <p class="lede" data-reveal>Every DNAProved test is built from a handful of well-proven methods. Here is each one, from the DNA in a feather root to the trace on your report, with the research behind it.</p>
+          <ul class="toc" data-reveal aria-label="Chapters">
+            <li><a href="#dna">DNA</a></li>
+            <li><a href="#extract">Extraction</a></li>
+            <li><a href="#pcr">PCR</a></li>
+            <li><a href="#gel">Gels</a></li>
+            <li><a href="#sexing">Bird sexing</a></li>
+            <li><a href="#sanger">Sequencing</a></li>
+            <li><a href="#barcoding">Barcoding</a></li>
+            <li><a href="#edna">eDNA</a></li>
+            <li><a href="#microbes">Microbes</a></li>
+            <li><a href="#limits">Limits</a></li>
+            <li><a href="#refs">References</a></li>
+          </ul>
+        </div>
+        <figure class="page-hero__media figure" data-reveal>
+          <div class="media"><img src="./assets/img/gel-photo.webp" alt="Photograph of an agarose gel glowing pink and purple with bright DNA bands in several lanes" width="1400" height="1050" data-drift></div>
+          <figcaption>A real agarose gel: each bright band is DNA of one length. <span class="credit">Photo: Mnolf, CC BY-SA 3.0.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- DNA -->
+    <section class="sci gel-field" id="dna" aria-labelledby="dna-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="dna-title" data-reveal>DNA is a code in four letters.</h2>
+          <p class="statement" data-reveal>Every cell in a bird, a beetle or a yeast carries its full genome, written in just four chemical bases.</p>
+          <p data-reveal>DNA is two strands wound into a double helix. Each strand is a chain of bases: adenine (A), thymine (T), guanine (G) and cytosine (C). Across the helix, A always pairs with T and G with C, so each strand is a template for the other. That pairing rule is what lets a lab copy one exact stretch of DNA.</p>
+          <p data-reveal>A bird's genome runs to about a billion base pairs. Our tests don't read all of it. Each one targets a short, well-studied stretch, a few hundred bases long, that answers one question: which sex, which species, present or absent.</p>
+          <p data-reveal>Because almost every cell carries the full genome, a tiny sample works. The root of a plucked feather, a swab of the beak, or the membrane left in an eggshell holds enough cells.</p>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <div class="panel" data-helix-rotor style="display:grid;place-items:center">
+            <svg viewBox="0 0 320 600" class="helix-rotor" role="img" aria-label="A rotating DNA double helix with colour-coded base pairs"></svg>
+          </div>
+          <figcaption>A to T and G to C: the base pairs that hold the two strands together.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Extraction -->
+    <section class="sci sci--flip" id="extract" aria-labelledby="ex-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="ex-title" data-reveal>First, get the DNA out.</h2>
+          <p class="statement" data-reveal>Extraction turns a feather, a specimen or a water filter into a few drops of clean DNA.</p>
+          <ol class="key-points" style="list-style:none" data-reveal>
+            <li><strong>Lyse.</strong> A buffer with detergent and a protein-digesting enzyme breaks open the cells and frees the DNA.</li>
+            <li><strong>Bind.</strong> With the right salt, DNA sticks to a silica membrane while most of the rest flows through.</li>
+            <li><strong>Wash.</strong> Alcohol-based washes rinse away proteins, salts and pigments that would block the next step.</li>
+            <li><strong>Elute.</strong> A low-salt buffer releases pure DNA from the silica, ready for PCR.</li>
+          </ol>
+          <p data-reveal>This all happens in a clean pre-PCR area. Copied DNA from finished tests never comes back into that space, because a few stray copies could cause a false result, especially in eDNA work.</p>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <svg viewBox="0 0 640 380" role="img" aria-label="Four tubes showing the extraction steps: lyse, bind, wash, elute" style="background:var(--ground-2)">
+            <g font-family="Archivo, sans-serif" text-anchor="middle">
+              <g transform="translate(90 40)">
+                <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
+                <path d="M-34 110 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#f3c6d8"/>
+                <circle cx="-12" cy="160" r="6" fill="#c12b6c"/><circle cx="10" cy="190" r="5" fill="#c12b6c"/><circle cx="4" cy="140" r="4" fill="#c12b6c"/>
+                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Lyse</text>
+                <text y="314" font-size="14" fill="#3a5161">cells burst</text>
+              </g>
+              <g transform="translate(240 40)">
+                <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
+                <rect x="-34" y="120" width="68" height="18" fill="#57b8e0"/>
+                <path d="M-20 129 q6 -8 12 0 t12 0 t12 0" stroke="#0f2433" stroke-width="3" fill="none"/>
+                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Bind</text>
+                <text y="314" font-size="14" fill="#3a5161">DNA on silica</text>
+              </g>
+              <g transform="translate(390 40)">
+                <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
+                <rect x="-34" y="120" width="68" height="18" fill="#57b8e0"/>
+                <path d="M-20 129 q6 -8 12 0 t12 0 t12 0" stroke="#0f2433" stroke-width="3" fill="none"/>
+                <path d="M-34 160 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#e6f0f3"/>
+                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Wash</text>
+                <text y="314" font-size="14" fill="#3a5161">impurities out</text>
+              </g>
+              <g transform="translate(540 40)">
+                <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
+                <path d="M-34 170 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#bfe6f5"/>
+                <path d="M-14 205 q5 -7 10 0 t10 0" stroke="#0f2433" stroke-width="3" fill="none"/>
+                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Elute</text>
+                <text y="314" font-size="14" fill="#3a5161">clean DNA</text>
+              </g>
+            </g>
+          </svg>
+          <figcaption>Silica-column extraction, the standard method behind most DNA kits.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PCR -->
+    <section class="sci gel-field" id="pcr" aria-labelledby="pcr-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="pcr-title" data-reveal>PCR copies one gene, fast.</h2>
+          <p class="statement" data-reveal>The polymerase chain reaction finds one target among a billion bases and doubles it, again and again.</p>
+          <p data-reveal>Two short primers, each about 20 bases, are designed to match the sequence on either side of the target. A heat-stable DNA polymerase, first taken from <i>Thermus aquaticus</i>, a bacterium of hot springs, builds new DNA from those primers. The thermocycler then repeats three temperatures:</p>
+          <ul class="key-points" data-reveal>
+            <li><strong>Denature, about 95 °C.</strong> The two strands of DNA separate.</li>
+            <li><strong>Anneal, about 50 to 60 °C.</strong> The primers grip their matching sites.</li>
+            <li><strong>Extend, 72 °C.</strong> The polymerase builds a new strand from each primer.</li>
+          </ul>
+          <p data-reveal>Each cycle roughly doubles the target. After 30 cycles, one copy becomes about a billion (2<sup>30</sup> = 1,073,741,824), enough to see as a band on a gel. In practice the reaction slows near the end as primers and building blocks run out.</p>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <div class="panel" data-pcr-sim>
+            <svg viewBox="0 0 640 290" role="img" aria-label="Chart of copies of the target DNA against PCR cycle number, rising steeply after about 25 cycles">
+              <g stroke="#2a5670" stroke-width="1">
+                <line x1="40" y1="30" x2="40" y2="250"/><line x1="40" y1="250" x2="600" y2="250"/>
+              </g>
+              <g font-family="Archivo, sans-serif" font-size="13" fill="#b9d0db">
+                <text x="40" y="272" text-anchor="middle">0</text><text x="200" y="272" text-anchor="middle">10</text><text x="360" y="272" text-anchor="middle">20</text><text x="520" y="272" text-anchor="middle">30</text>
+                <text x="600" y="288" text-anchor="end">PCR cycles</text>
+                <text x="48" y="24">Copies of the target</text>
+              </g>
+              <polygon data-area fill="rgba(87,184,224,0.18)" points="40,250"/>
+              <polyline data-curve fill="none" stroke="#57b8e0" stroke-width="3.5" stroke-linejoin="round" points="40,250"/>
+              <circle data-dot r="7" fill="#f07aa8" cx="40" cy="250"/>
+            </svg>
+            <div class="panel__controls">
+              <div class="panel__readout"><strong data-copies>1,073,741,824</strong><span class="muted">copies after <span data-cycle>30</span> cycles</span></div>
+            </div>
+            <div class="panel__controls">
+              <label for="pcr-range" class="visually-hidden">Number of PCR cycles</label>
+              <input id="pcr-range" type="range" min="0" max="35" value="30">
+              <button class="btn btn--small" type="button" data-play>Run 30 cycles</button>
+            </div>
+            <p class="small muted" data-step style="margin-top:12px">Drag the slider or run the cycles to watch the copies double.</p>
+          </div>
+          <figcaption>Idealised doubling. Real reactions plateau after 30 to 40 cycles.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Gel -->
+    <section class="sci sci--flip" id="gel" aria-labelledby="gel-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="gel-title" data-reveal>Reading DNA by its length.</h2>
+          <p class="statement" data-reveal>Gel electrophoresis sorts DNA pieces by size, so a result becomes a picture.</p>
+          <p data-reveal>DNA carries a negative charge. Loaded into wells at one end of an agarose gel and put under an electric field, it moves toward the positive end. The gel is a mesh, so short pieces slip through faster and travel farther than long ones.</p>
+          <p data-reveal>A ladder of DNA pieces with known lengths runs beside the samples, like a ruler. A stain binds the DNA and glows under blue light, and the bands are photographed. That photograph is what your bird sexing report links to.</p>
+          <p data-reveal><a class="link" href="./index.html#hero-title">Try reading a gel yourself</a> on the home page.</p>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <div class="media" style="aspect-ratio:4/3"><img src="./assets/img/gel-photo.webp" alt="Photograph of an agarose gel with bright pink DNA bands in several lanes" width="1400" height="1050" loading="lazy"></div>
+          <figcaption>The ladder runs in the leftmost lane; each other lane is one sample. <span class="credit">Photo: Mnolf, CC BY-SA 3.0.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Bird sexing -->
+    <section class="sci field-2" id="sexing" aria-labelledby="sex-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="sex-title" data-reveal>Telling the sexes apart.</h2>
+          <p class="statement" data-reveal>In birds it's the female who carries two different sex chromosomes, and one gene gives her away.</p>
+          <p data-reveal>Mammals are XX females and XY males. Birds are the other way round: males are ZZ and females are ZW. A gene called CHD1 sits on both the Z and the W chromosome, and the two copies differ in the length of an intron, a stretch of non-coding DNA inside the gene.</p>
+          <p data-reveal>Primers such as P2 and P8 match the parts of CHD1 that are the same on both chromosomes, so one PCR copies the Z version and the W version together. On a gel, a male shows one band, because both his copies are Z. A female shows two, Z and W.</p>
+          <p data-reveal>Griffiths and colleagues published this test in 1998, estimating that adult females look identical to males in over half of the world's bird species. Fridolfsson and Ellegren added a second primer pair in 1999 that works across most non-ratite birds.</p>
+          <div class="note" data-reveal><strong>Where it needs care.</strong> Ostriches, emus and other ratites have sex chromosomes that are hard to tell apart with this method. In a few species, natural variation on the Z chromosome can add an extra band, which could make a male look female. That is why we validate each species group and run a known male and known female in every batch.</div>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <svg viewBox="0 0 640 520" role="img" aria-label="Diagram: a male bird has two Z chromosomes and shows one band; a female has a Z and a W chromosome and shows two bands" style="background:var(--white)">
+            <g font-family="Archivo, sans-serif">
+              <text x="160" y="44" text-anchor="middle" font-size="26" font-weight="760" fill="#0f2433">Male, ZZ</text>
+              <text x="480" y="44" text-anchor="middle" font-size="26" font-weight="760" fill="#0f2433">Female, ZW</text>
+              <!-- male chromosomes -->
+              <g transform="translate(110 70)">
+                <rect x="0" y="0" width="34" height="170" rx="17" fill="#57b8e0"/><rect x="66" y="0" width="34" height="170" rx="17" fill="#57b8e0"/>
+                <rect x="0" y="92" width="34" height="16" fill="#0a6e97"/><rect x="66" y="92" width="34" height="16" fill="#0a6e97"/>
+                <text x="17" y="196" text-anchor="middle" font-size="18" fill="#0f2433">Z</text><text x="83" y="196" text-anchor="middle" font-size="18" fill="#0f2433">Z</text>
+              </g>
+              <!-- female chromosomes -->
+              <g transform="translate(430 70)">
+                <rect x="0" y="0" width="34" height="170" rx="17" fill="#57b8e0"/><rect x="66" y="40" width="34" height="110" rx="17" fill="#c12b6c"/>
+                <rect x="0" y="92" width="34" height="16" fill="#0a6e97"/><rect x="66" y="88" width="34" height="14" fill="#7d1645"/>
+                <text x="17" y="196" text-anchor="middle" font-size="18" fill="#0f2433">Z</text><text x="83" y="196" text-anchor="middle" font-size="18" fill="#0f2433">W</text>
+              </g>
+              <text x="320" y="142" text-anchor="middle" font-size="14" fill="#3a5161">dark stripe:</text>
+              <text x="320" y="160" text-anchor="middle" font-size="14" fill="#3a5161">the CHD1 gene</text>
+              <!-- gels -->
+              <g transform="translate(60 300)">
+                <rect width="200" height="180" rx="4" fill="#143a50"/><rect x="70" y="14" width="60" height="9" rx="2" fill="#0a1f2c"/>
+                <rect x="72" y="112" width="56" height="8" rx="3" fill="#bfe6f5"/>
+                <text x="100" y="168" text-anchor="middle" font-size="15" fill="#d6e6ee">one band</text>
+              </g>
+              <g transform="translate(380 300)">
+                <rect width="200" height="180" rx="4" fill="#143a50"/><rect x="70" y="14" width="60" height="9" rx="2" fill="#0a1f2c"/>
+                <rect x="72" y="92" width="56" height="8" rx="3" fill="#bfe6f5"/><rect x="72" y="112" width="56" height="8" rx="3" fill="#bfe6f5"/>
+                <text x="100" y="168" text-anchor="middle" font-size="15" fill="#d6e6ee">two bands</text>
+              </g>
+              <text x="320" y="508" text-anchor="middle" font-size="14" fill="#3a5161">The Z and W copies differ in length, so they stop at different heights.</text>
+            </g>
+          </svg>
+          <figcaption>Why one band means male and two bands mean female.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Sanger -->
+    <section class="sci gel-field" id="sanger" aria-labelledby="sanger-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="sanger-title" data-reveal>Sanger sequencing, base by base.</h2>
+          <p class="statement" data-reveal>For species and microbe IDs we don't just copy the barcode gene. We read every letter of it.</p>
+          <p data-reveal>Frederick Sanger's chain-termination method, published in 1977, is still the standard for reading single genes. A copying reaction includes a small share of modified bases that stop the new strand wherever they are added, each type labelled with its own fluorescent dye.</p>
+          <p data-reveal>The result is a set of fragments ending at every position. A capillary sorts them by length, one base apart, and a laser reads the colour at the end of each. Plotted in order, the colours become a trace, the chromatogram, with one peak per base.</p>
+          <p data-reveal>Clean, tall, evenly spaced peaks mean a confident read. Your report links to this trace, so anyone can check the sequence we matched.</p>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <div class="panel" data-chromatogram data-seq="TTGGATCATCCATTGGAGCCCTTCTAGGAGATGACCAAATTTATAATG">
+            <svg viewBox="0 0 900 260" role="img" aria-label="A Sanger sequencing chromatogram with coloured peaks for each base and the base letters underneath"></svg>
+          </div>
+          <figcaption>A drawn example of a chromatogram. Green A, blue C, grey G, pink T.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Barcoding -->
+    <section class="sci sci--flip" id="barcoding" aria-labelledby="bar-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="bar-title" data-reveal>A barcode for every species.</h2>
+          <p class="statement" data-reveal>One standard stretch of DNA, read the same way for every specimen, tells species apart.</p>
+          <p data-reveal>In 2003 Paul Hebert's team proposed a short region of the mitochondrial gene COI as a barcode for animals. Built from 200 closely related moths and butterflies, their COI profile identified later specimens with 100% success. A year later, barcodes showed that the skipper butterfly <i>Astraptes fulgerator</i> was really at least ten species.</p>
+          <p data-reveal>COI works poorly in fungi, so in 2012 an international team chose the ITS region as the fungal barcode. Across all fungi tested it gave the right identification about 73% of the time, among the best of six candidate markers, with near-universal amplification in some groups. Bacteria are identified by their 16S ribosomal RNA gene.</p>
+          <ul class="key-points" data-reveal>
+            <li><strong>Match:</strong> we compare your sequence with reference databases such as BOLD and GenBank.</li>
+            <li><strong>Percent identity:</strong> how closely it matches. Very high identity usually means the same species, but the line differs between groups, so we report the number and what it means.</li>
+            <li><strong>No match:</strong> many hobby isopods are undescribed. We say so, and add verified founder stock to our own reference library.</li>
+          </ul>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <div class="pair">
+            <div class="media" style="min-height:420px"><img src="./assets/img/astraptes.webp" alt="Two-barred flasher butterfly with a bright blue body" width="1400" height="933" loading="lazy" style="object-position:35% 50%"></div>
+            <div class="media media--plate" style="background:#fff;min-height:420px"><img src="./assets/img/porcellio-plate.webp" alt="Scientific drawing of the isopod Porcellio pictus" width="450" height="640" loading="lazy"></div>
+          </div>
+          <figcaption><i>Astraptes fulgerator</i> (Anne Toal, CC BY 2.0) and <i>Porcellio pictus</i> after G. O. Sars (Dansk naturhistorisk forening, 1907, CC BY-SA 3.0).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- eDNA -->
+    <section class="sci gel-field" id="edna" aria-labelledby="edna-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="edna-title" data-reveal>DNA left behind in water.</h2>
+          <p class="statement" data-reveal>Fish, mussels, frogs and plants shed DNA into the water around them. A filter can catch it.</p>
+          <p data-reveal>Skin cells, mucus and waste leave traces of DNA in every pond and lake. Filtering a measured volume of water captures those traces, and a PCR built for one species detects whether its DNA is there. In 2008 Ficetola and colleagues showed it could find invasive American bullfrogs from water samples alone.</p>
+          <p data-reveal>Real-time PCR (qPCR) watches the copying happen. A probe glows as copies build up, and the cycle where the glow crosses a threshold, the Ct value, shows the target is present: the earlier it crosses, the more DNA was in the sample. Each sample runs in triplicate beside field and lab blanks.</p>
+          <p data-reveal>A 2021 meta-analysis found eDNA is generally more sensitive and cheaper than traditional surveys, though the advantage varies by animal group and few studies measure it rigorously.</p>
+          <div class="note" data-reveal><strong>What a detection means.</strong> It shows the species' DNA was present when you sampled. It doesn't say how many animals there are, and DNA can drift in from upstream. That is why eDNA results are screening information.</div>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <div class="panel" data-qpcr>
+            <svg viewBox="0 0 620 300" role="img" aria-label="Real-time PCR chart: three replicate curves for a water sample rise after about 25 cycles and cross the threshold, while the blank and negative control stay flat">
+              <g stroke="#2a5670" stroke-width="1"><line x1="50" y1="40" x2="50" y2="250"/><line x1="50" y1="250" x2="600" y2="250"/></g>
+              <line x1="50" y1="200" x2="600" y2="200" stroke="#f07aa8" stroke-width="1.5" stroke-dasharray="6 6"/>
+              <g font-family="Archivo, sans-serif" font-size="13" fill="#b9d0db">
+                <text x="50" y="272" text-anchor="middle">0</text><text x="185" y="272" text-anchor="middle">10</text><text x="320" y="272" text-anchor="middle">20</text><text x="455" y="272" text-anchor="middle">30</text><text x="590" y="272" text-anchor="middle">40</text>
+                <text x="600" y="292" text-anchor="end">Cycle</text>
+                <text x="58" y="32">Signal</text>
+                <text x="596" y="192" text-anchor="end" fill="#f07aa8">threshold</text>
+                <text x="596" y="60" text-anchor="end" fill="#57b8e0">sample, 3 replicates</text>
+                <text x="596" y="240" text-anchor="end" fill="#9fb9c6">blanks stay flat</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>A drawn example of a positive eDNA result, with its controls.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Microbes -->
+    <section class="sci sci--flip" id="microbes" aria-labelledby="mic-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="mic-title" data-reveal>The microbes in a ferment.</h2>
+          <p class="statement" data-reveal>Beer, kombucha and sourdough are run by yeast and bacteria you can't tell apart by eye.</p>
+          <p data-reveal>We grow what's in your sample, pick single colonies and identify each by DNA: the ITS region for yeast and other fungi, and the 16S ribosomal RNA gene for bacteria. Each is Sanger sequenced and matched against reference databases.</p>
+          <p data-reveal>In brewing, lactic acid bacteria such as <i>Lactobacillus brevis</i> and <i>Pediococcus damnosus</i> are among the best-known spoilers, because some strains tolerate the antibacterial compounds in hops. Knowing exactly what's growing tells you whether a sour note is a problem or a feature.</p>
+          <p data-reveal>Sourdough starters are communities of wild yeast and lactic acid bacteria. Each batch of our verified starter is barcoded, and its certificate names the microbes we found.</p>
+        </div>
+        <figure class="sci__fig figure" data-reveal>
+          <div class="pair">
+            <div class="media" style="min-height:400px"><img src="./assets/img/yeast-dic.webp" alt="Microscope image of oval yeast cells, some budding" width="1280" height="1280" loading="lazy"></div>
+            <div class="media" style="min-height:400px"><img src="./assets/img/sourdough.webp" alt="Bubbly sourdough starter in a glass jar seen from above" width="1400" height="933" loading="lazy"></div>
+          </div>
+          <figcaption>Baker's yeast under the microscope (Masur, public domain) and a sourdough starter (PilotChicago, CC BY-SA 4.0).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Limits -->
+    <section class="sci field-2" id="limits" aria-labelledby="lim-title">
+      <div class="wrap sci__grid">
+        <div class="sci__text prose">
+          <h2 id="lim-title" data-reveal>What DNA can't tell you.</h2>
+          <p class="statement" data-reveal>Good science says where its answers stop. These are ours.</p>
+        </div>
+        <div class="sci__fig" style="position:static">
+          <ul class="key-points" data-reveal>
+            <li><strong>Sex isn't health.</strong> A sexing result says nothing about whether a bird is healthy or fertile.</li>
+            <li><strong>A match depends on the database.</strong> If a species was never sequenced, no lab can name it from DNA alone; we report the closest match and say how close.</li>
+            <li><strong>Presence isn't abundance.</strong> eDNA shows a species' DNA was in the water, not how many animals live there.</li>
+            <li><strong>Contamination is the main risk.</strong> Separate pre- and post-PCR areas, blanks in every run and repeat-on-failure rules are how we manage it.</li>
+            <li><strong>Accuracy claims need data.</strong> We validate each test on samples of known identity before offering it, and publish the summary.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section class="section" id="refs" aria-labelledby="refs-title">
+      <div class="wrap">
+        <h2 id="refs-title" style="margin-bottom:40px" data-reveal>References.</h2>
+        <ol class="refs" data-reveal>
+          <li>Griffiths R, Double MC, Orr K, Dawson RJG (1998). A DNA test to sex most birds. <i>Molecular Ecology</i> 7: 1071–1075. <a href="https://doi.org/10.1046/j.1365-294x.1998.00389.x" rel="noopener" target="_blank">doi:10.1046/j.1365-294x.1998.00389.x</a></li>
+          <li>Fridolfsson A-K, Ellegren H (1999). A simple and universal method for molecular sexing of non-ratite birds. <i>Journal of Avian Biology</i> 30: 116–121.</li>
+          <li>Waldenström J, Ottosson U (2000). The accuracy of field sex determination in the Common Whitethroat <i>Sylvia c. communis</i>. <i>Ornis Svecica</i> 10: 67–70. <a href="https://journals.lub.lu.se/os/article/view/20574" rel="noopener" target="_blank">journals.lub.lu.se</a></li>
+          <li>Dobreva et al. (2021). Sex identification in embryos and adults of Darwin's finches. <i>PLoS ONE</i>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7935298/" rel="noopener" target="_blank">PMC7935298</a></li>
+          <li>Hebert PDN, Cywinska A, Ball SL, deWaard JR (2003). Biological identifications through DNA barcodes. <i>Proceedings of the Royal Society B</i> 270: 313–321. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1691236/" rel="noopener" target="_blank">PMC1691236</a></li>
+          <li>Hebert PDN, Penton EH, Burns JM, Janzen DH, Hallwachs W (2004). Ten species in one: DNA barcoding reveals cryptic species in the neotropical skipper butterfly <i>Astraptes fulgerator</i>. <i>PNAS</i> 101: 14812–14817. <a href="https://doi.org/10.1073/pnas.0406166101" rel="noopener" target="_blank">doi:10.1073/pnas.0406166101</a></li>
+          <li>Schoch CL et al. (2012). Nuclear ribosomal internal transcribed spacer (ITS) region as a universal DNA barcode marker for Fungi. <i>PNAS</i> 109: 6241–6246. <a href="https://doi.org/10.1073/pnas.1117018109" rel="noopener" target="_blank">doi:10.1073/pnas.1117018109</a></li>
+          <li>Goodwin ZA, Harris DJ, Filer D, Wood JRI, Scotland RW (2015). Widespread mistaken identity in tropical plant collections. <i>Current Biology</i> 25: R1066–R1067. <a href="https://doi.org/10.1016/j.cub.2015.10.002" rel="noopener" target="_blank">doi:10.1016/j.cub.2015.10.002</a></li>
+          <li>Luque GM, Donlan CJ (2019). The characterization of seafood mislabeling: a global meta-analysis. <i>Biological Conservation</i> 236: 556–570. <a href="https://doi.org/10.1016/j.biocon.2019.04.006" rel="noopener" target="_blank">doi:10.1016/j.biocon.2019.04.006</a></li>
+          <li>Sanger F, Nicklen S, Coulson AR (1977). DNA sequencing with chain-terminating inhibitors. <i>PNAS</i> 74: 5463–5467.</li>
+          <li>Saiki RK et al. (1988). Primer-directed enzymatic amplification of DNA with a thermostable DNA polymerase. <i>Science</i> 239: 487–491.</li>
+          <li>Ficetola GF, Miaud C, Pompanon F, Taberlet P (2008). Species detection using environmental DNA from water samples. <i>Biology Letters</i> 4: 423–425.</li>
+          <li>Fediajevaite J, Priestley V, Arnold R, Savolainen V (2021). Meta-analysis shows that environmental DNA outperforms traditional surveys, but warrants better reporting standards. <i>Ecology and Evolution</i> 11: 4803–4815. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8093654/" rel="noopener" target="_blank">PMC8093654</a></li>
+          <li>Sakamoto K, Konings WN (2003). Beer spoilage bacteria and hop resistance. <i>International Journal of Food Microbiology</i> 89: 105–124.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section gel-field" aria-labelledby="cta-title">
+      <div class="wrap cta">
+        <h2 id="cta-title" data-reveal>Put the science to work.</h2>
+        <div class="cta__side" data-reveal>
+          <p class="lede">Every one of these methods sits behind a DNAProved report, with the evidence attached.</p>
+          <div class="actions"><a class="btn" href="./order.html">Start an order</a><a class="btn btn--quiet" href="./services.html">See services</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-word" aria-hidden="true"><span class="d">DNA</span><span class="p">Proved</span></div>
+      <div class="footer-cols">
+        <div><h2>Services</h2><a href="./services.html#birds">Bird DNA sexing</a><a href="./services.html#species">DNA species ID</a><a href="./services.html#edna">eDNA water screening</a><a href="./services.html#ferment">Fermentation microbes</a></div>
+        <div><h2>Learn</h2><a href="./science.html">The science</a><a href="./services.html#pricing">Prices and discounts</a><a href="./services.html#compare">How we compare</a><a href="./services.html#faq">Questions</a></div>
+        <div><h2>Contact</h2><a href="mailto:dna.proved@gmail.com">dna.proved@gmail.com</a><p>New Jersey, USA. Drop-off by appointment.</p><a href="./order.html">Start an order</a></div>
+        <div><h2>Policies</h2><a href="./services.html#policy">Sample acceptance</a><a href="./credits.html">Picture credits</a></div>
+      </div>
+      <div class="footer-legal">
+        <p>© 2026 DNAProved. We test animal, environmental and microbial samples only, never human samples.</p>
+        <p>eDNA and seafood results are screening information, not regulatory findings.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="./assets/js/site.js" defer></script>
+  <script src="./assets/js/chat.js" defer></script>
+</body>
+</html>

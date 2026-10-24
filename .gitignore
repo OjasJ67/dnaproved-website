@@ -1,0 +1,7 @@
+node_modules/
+.netlify/
+.claude/
+.taste-skill/
+.DS_Store
+Thumbs.db
+*.log
