@@ -10,9 +10,9 @@
   var SUGGESTIONS = ["How much is bird sexing?", "How do I collect feathers?", "What is eDNA?", "How do I place an order?"];
 
   var FAQ = [
-    { k: ["price", "cost", "how much", "charge", "fee", "$"], a: "Prices: bird DNA sexing $18 per bird (first bird half price on your first order, free collection kit); DNA species ID $40 per specimen; eDNA water screening $135 per sample for 1 to 3 target species; microbe ID $75 per isolate; brewery QC plan $150 a month; DNA-verified sourdough starter $14 a packet (in person in New Jersey). Volume and group discounts are on the Services page: ./services.html#pricing" },
+    { k: ["price", "cost", "how much", "charge", "fee", "$"], a: "Prices: bird DNA sexing $18 per bird (first bird half price on your first order, free collection kit); DNA species ID $40 per specimen; eDNA water screening $135 per sample for 1 to 3 target species; microbe ID $75 per isolate; brewery QC plan $150 a month; DNA-verified sourdough starter $14 a packet (in person in New Jersey). Volume and group discounts are on the Services page: ./index.html#pricing" },
     { k: ["feather", "collect", "sample", "swab", "blood", "eggshell", "pluck"], a: "For bird sexing you can send a few plucked chest feathers (plucked, not molted, so the root is attached), a blood card, a swab, or the membrane from a hatched egg. We send a free collection kit with instructions and return postage. Start an order here: ./order.html?service=bird" },
-    { k: ["edna", "e-dna", "lake", "pond", "water", "invasive"], a: "eDNA screening looks for DNA that animals and plants shed into water. You filter water with our field kit, and we run species-specific PCR for 1 to 3 target species, with field and lab blanks. You get detected or not detected for each target. It's $135 per sample with no ten-sample minimum. Results are screening information, not regulatory findings. Details: ./services.html#edna" },
+    { k: ["edna", "e-dna", "lake", "pond", "water", "invasive"], a: "eDNA screening looks for DNA that animals and plants shed into water. You filter water with our field kit, and we run species-specific PCR for 1 to 3 target species, with field and lab blanks. You get detected or not detected for each target. It's $135 per sample with no ten-sample minimum. Results are screening information, not regulatory findings. Details: ./index.html#detail-edna" },
     { k: ["order", "buy", "kit", "start", "book", "send"], a: "To order, go to ./order.html, choose what you need, add your name and email, edit the prefilled message and send it. It reaches dna.proved@gmail.com and we reply with your kit and next steps." },
     { k: ["human", "paternity", "ancestry", "people", "person", "medical", "disease"], a: "We don't test human samples of any kind, and we don't diagnose disease. DNAProved works only with animal, environmental and microbial samples." },
     { k: ["species", "isopod", "insect", "fish", "mushroom", "fungi", "barcode", "identify", "identification"], a: "DNA species ID reads a barcode gene (COI for animals, ITS for fungi) by Sanger sequencing and matches it against reference databases. Send dead, dried or frozen specimens, never live animals. You get the best match, percent identity, the sequence trace and a signed report. $40 per specimen. Sellers can get a DNAproved species badge for listings." },
@@ -32,7 +32,7 @@
   var linkify = function (s) {
     return esc(s)
       .replace(/(https?:\/\/[^\s<]+[^\s<.,;:!?)])/g, "<a href=\"$1\" target=\"_blank\" rel=\"noopener\">$1</a>")
-      .replace(/(^|[\s(])(\.?\/(?:index|services|science|order|credits)\.html[^\s<]*?)(?=[\s<.,;:!?)]|$)/g, "$1<a href=\"$2\">$2</a>")
+      .replace(/(^|[\s(])(\.?\/(?:index|science|order|credits)\.html[^\s<]*?)(?=[\s<.,;:!?)]|$)/g, "$1<a href=\"$2\">$2</a>")
       .replace(/([\w.+-]+@[\w-]+\.[\w.]+)/g, "<a href=\"mailto:$1\">$1</a>");
   };
 
@@ -101,7 +101,7 @@
       var s = f.k.reduce(function (n, k) { return n + (t.indexOf(k) !== -1 ? 1 : 0); }, 0);
       if (s > score) { score = s; best = f; }
     });
-    return best ? best.a : "I don't have a ready answer for that one. Email dna.proved@gmail.com and we'll reply with details, or browse ./services.html and ./science.html.";
+    return best ? best.a : "I don't have a ready answer for that one. Email dna.proved@gmail.com and we'll reply with details, or browse ./index.html#services and ./science.html.";
   };
 
   var ask = function (q) {

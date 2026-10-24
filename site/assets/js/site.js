@@ -114,6 +114,52 @@
     }
   }
 
+  /* ---------- service detail tabs ---------- */
+  var tabs = $("[data-tabs]");
+  if (tabs) {
+    var tabBtns = $$("[role=tab]", tabs), panels = $$("[role=tabpanel]", tabs);
+    tabs.classList.add("js-tabs");
+    var showTab = function (key, opts) {
+      opts = opts || {};
+      var btn = tabBtns.filter(function (b) { return b.dataset.tab === key; })[0];
+      if (!btn) return;
+      tabBtns.forEach(function (b) {
+        var on = b === btn;
+        b.setAttribute("aria-selected", String(on));
+        b.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach(function (p) {
+        var on = p.id === "detail-" + key;
+        p.hidden = !on;
+        if (on && !opts.init && window.gsap && !reduceMotion) window.gsap.fromTo(p, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" });
+      });
+      if (opts.focus) btn.focus();
+      var sec = tabs.closest("section");
+      if (sec && btn.dataset.sceneTab) sec.dataset.scene = btn.dataset.sceneTab;
+      if (!opts.init && window.DNAScene && btn.dataset.sceneTab) window.DNAScene.set(btn.dataset.sceneTab);
+    };
+    tabBtns.forEach(function (b, i) {
+      b.addEventListener("click", function () { showTab(b.dataset.tab); });
+      b.addEventListener("keydown", function (e) {
+        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!d) return;
+        e.preventDefault();
+        showTab(tabBtns[(i + d + tabBtns.length) % tabBtns.length].dataset.tab, { focus: true });
+      });
+    });
+    // "Details" links from the carousel and footer open the matching tab first
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest("a[href*='#detail-']");
+      if (!a) return;
+      var url = new URL(a.href, location.href);
+      if (url.pathname !== location.pathname) return;
+      showTab(url.hash.replace("#detail-", ""));
+    });
+    var fromHash = location.hash.indexOf("#detail-") === 0 ? location.hash.slice(8) : null;
+    showTab(fromHash || tabBtns[0].dataset.tab, { init: true });
+    if (fromHash) setTimeout(function () { tabs.scrollIntoView({ block: "start" }); }, 400);
+  }
+
   /* ---------- price estimator ---------- */
   var est = $("[data-estimate]");
   if (est) {
@@ -332,7 +378,7 @@
     // Section parts enter in order: heading, text, picture.
     var firstSection = $("main section");
     $$("main section, main article").forEach(function (sec) {
-      var items = $$("[data-reveal]", sec).filter(function (el) { return el.closest("section, article") === sec; });
+      var items = $$("[data-reveal]", sec).filter(function (el) { return el.parentElement.closest("section, article") === sec; });
       if (!items.length) return;
       if (sec === firstSection) {
         intro.then(function () {

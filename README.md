@@ -6,12 +6,12 @@ Static website for DNAProved, a New Jersey DNA lab offering bird DNA sexing, DNA
 
 | File | What it is |
 | --- | --- |
-| `site/index.html` | Home: live gel, peer-reviewed statistics, the four services, how it works, quality controls, comparison, offers |
-| `site/services.html` | Full service details, collection instructions, prices, price estimator, comparison, sample policy, FAQ |
+| `site/index.html` | Home: helix hero, live gel, statistics, 3D services carousel with arrows, service detail tabs, how it works, quality controls and sample policy, full comparison, launch offer banners, price table, estimator, FAQ |
 | `site/science.html` | Deep dive: DNA, extraction, PCR simulator, gels, bird sexing, Sanger sequencing, barcoding, eDNA, microbes, references |
 | `site/order.html` | Order composer with preset emails per service |
 | `site/credits.html` | Picture sources and licences |
 | `site/404.html` | Not-found page |
+| `site/_redirects` | Sends old /services.html links to the home page |
 
 ## The immersive layer
 
@@ -37,7 +37,7 @@ Static website for DNAProved, a New Jersey DNA lab offering bird DNA sexing, DNA
 
 ## Editing
 
-- **Prices and discounts:** `PRICING`, `VOLUME` and `GROUP` at the top of `site/assets/js/site.js` (the estimator), plus the matching text in `site/index.html`, `site/services.html` and the chat knowledge in `netlify/functions/chat/knowledge.mjs`.
+- **Prices and discounts:** `PRICING`, `VOLUME` and `GROUP` at the top of `site/assets/js/site.js` (the estimator), plus the matching text in `site/index.html` and the chat knowledge in `netlify/functions/chat/knowledge.mjs`.
 - **Order email templates:** `TEMPLATES` in `site/assets/js/order.js`.
 - **Chat assistant knowledge:** `netlify/functions/chat/knowledge.mjs`.
 - **Colours and type:** tokens at the top of `site/assets/css/site.css`.

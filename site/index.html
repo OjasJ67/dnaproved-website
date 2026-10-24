@@ -59,11 +59,9 @@
       <a class="brand" href="./index.html" aria-label="DNAProved home"><img src="./assets/img/logo.png" alt="DNAProved" width="694" height="258"></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
-        <a href="./services.html">Services</a>
+        <a href="./index.html" aria-current="page">Home</a>
         <a href="./science.html">The science</a>
-        <a href="./services.html#pricing">Pricing</a>
-        <a href="./services.html#compare">Compare</a>
-        <a class="btn btn--small" href="./order.html">Start an order</a>
+        <a class="btn btn--small" href="./order.html">Order</a>
       </nav>
     </div>
   </header>
@@ -214,6 +212,9 @@
           <h2 id="services-title">Four tests, one DNA workflow.</h2>
           <p>Every sample follows the same path: extract the DNA, copy the stretch that answers your question with PCR, then read it on a gel or by Sanger sequencing. Scroll, or swipe on a phone, to move through them.</p>
         </div>
+        <div class="carousel__stage">
+          <button class="carousel__arrow carousel__arrow--prev" type="button" data-carousel-prev data-cursor="Prev" aria-label="Previous test"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="carousel__arrow carousel__arrow--next" type="button" data-carousel-next data-cursor="Next" aria-label="Next test"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="carousel__viewport">
           <div class="carousel__track">
             <article class="card" id="birds" data-scene="zw" aria-labelledby="birds-title">
@@ -228,7 +229,7 @@
                   </dl>
                   <div class="card__foot">
                     <span class="card__price">$18<small>per bird</small></span>
-                    <div class="actions"><a class="btn btn--small" href="./order.html?service=bird">Order</a><a class="link" href="./services.html#birds">Details</a></div>
+                    <div class="actions"><a class="btn btn--small" href="./order.html?service=bird">Order</a><a class="link" href="#detail-birds">Details</a></div>
                   </div>
                   <p class="card__credit">Photo: Papooga, CC0. First bird half price on your first order.</p>
                 </div>
@@ -246,7 +247,7 @@
                   </dl>
                   <div class="card__foot">
                     <span class="card__price">$40<small>per specimen</small></span>
-                    <div class="actions"><a class="btn btn--small" href="./order.html?service=species">Order</a><a class="link" href="./services.html#species">Details</a></div>
+                    <div class="actions"><a class="btn btn--small" href="./order.html?service=species">Order</a><a class="link" href="#detail-species">Details</a></div>
                   </div>
                   <p class="card__credit">Photo: mattiamenchetti, CC BY 4.0. Sellers get a DNAproved species badge.</p>
                 </div>
@@ -264,7 +265,7 @@
                   </dl>
                   <div class="card__foot">
                     <span class="card__price">$135<small>per sample</small></span>
-                    <div class="actions"><a class="btn btn--small" href="./order.html?service=edna">Ask</a><a class="link" href="./services.html#edna">Details</a></div>
+                    <div class="actions"><a class="btn btn--small" href="./order.html?service=edna">Ask</a><a class="link" href="#detail-edna">Details</a></div>
                   </div>
                   <p class="card__credit">Lake Hopatcong, about 1911. Postcard: W. J. Harris, public domain. No ten-sample minimum.</p>
                 </div>
@@ -282,7 +283,7 @@
                   </dl>
                   <div class="card__foot">
                     <span class="card__price">$75<small>per isolate</small></span>
-                    <div class="actions"><a class="btn btn--small" href="./order.html?service=ferment">Ask</a><a class="link" href="./services.html#ferment">Details</a></div>
+                    <div class="actions"><a class="btn btn--small" href="./order.html?service=ferment">Ask</a><a class="link" href="#detail-ferment">Details</a></div>
                   </div>
                   <p class="card__credit"><i>S. cerevisiae</i>, Masur, public domain. First contamination screen free.</p>
                 </div>
@@ -290,9 +291,113 @@
             </article>
           </div>
         </div>
-        <div class="wrap carousel__foot" aria-hidden="true">
-          <span class="carousel__count"><span data-carousel-count>1</span> / 4</span>
-          <span class="carousel__bar"><span></span></span>
+        </div>
+        <div class="wrap carousel__foot">
+          <span class="carousel__count" aria-live="polite"><span data-carousel-count>1</span> / 4</span>
+          <span class="carousel__bar" aria-hidden="true"><span></span></span>
+          <span class="carousel__hint small muted">Use the arrows, your arrow keys or scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service details -->
+    <section class="section" id="details" data-scene="zw" aria-labelledby="details-title">
+      <div class="wrap section-head">
+        <h2 id="details-title" data-reveal>What to send, what you get.</h2>
+        <p data-reveal>Pick a test to see how to collect your sample, what comes back and what to know before you order.</p>
+      </div>
+      <div class="wrap tabs" data-tabs data-reveal>
+        <div class="tabs__list" role="tablist" aria-label="Services">
+          <button class="tabs__tab" type="button" role="tab" id="tab-birds" aria-controls="detail-birds" aria-selected="true" data-tab="birds" data-scene-tab="zw">Bird DNA sexing</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-species" aria-controls="detail-species" aria-selected="false" data-tab="species" data-scene-tab="barcode">DNA species ID</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-edna" aria-controls="detail-edna" aria-selected="false" data-tab="edna" data-scene-tab="water">eDNA water screening</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-ferment" aria-controls="detail-ferment" aria-selected="false" data-tab="ferment" data-scene-tab="cells">Fermentation microbes</button>
+        </div>
+
+        <div class="tabs__panel" role="tabpanel" id="detail-birds" aria-labelledby="tab-birds" tabindex="0">
+          <div>
+            <h3>How to collect</h3>
+            <ul>
+              <li><strong>Feathers:</strong> gently pluck a few small chest feathers. Plucked, not fallen out, because the DNA is in the root. Seal them in a paper envelope.</li>
+              <li><strong>Swab:</strong> rub inside the beak for about 15 seconds, air dry, cap it.</li>
+              <li><strong>Eggshell membrane:</strong> keep the shell of a freshly hatched egg with its inner membrane. Don't wash it.</li>
+              <li><strong>Blood card:</strong> best taken by your avian vet or an experienced keeper. Let it dry fully.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What you get back</h3>
+            <p>A certificate reading DNAproved male or DNAproved female, with the bird's band or microchip number, the test date and a QR code to the photo of the gel your bird ran on.</p>
+            <h3>Which birds</h3>
+            <p>Most captive-bred parrots, pigeons, doves, finches, canaries, softbills and poultry. Ask first for ostriches and emus. We can't accept feathers of native North American wild birds.</p>
+          </div>
+          <aside class="tabs__aside">
+            <span class="price">$18</span><p class="small">per bird, 2 business days. First bird half price on your first order. Free kit with return postage.</p>
+            <a class="btn" href="./order.html?service=bird">Order bird sexing</a>
+          </aside>
+        </div>
+
+        <div class="tabs__panel" role="tabpanel" id="detail-species" aria-labelledby="tab-species" tabindex="0">
+          <div>
+            <h3>What we identify</h3>
+            <ul>
+              <li><strong>Isopods and other invertebrates,</strong> including hobby morphs sold under trade names.</li>
+              <li><strong>Insects,</strong> from pest checks to collection specimens.</li>
+              <li><strong>Fish samples,</strong> such as a fillet you want to check against its label.</li>
+              <li><strong>Mushroom cultures and dried fungi,</strong> for growers and mycology clubs.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>How to send</h3>
+            <p>Dead, dried or frozen specimens only, never live animals. One or two whole adults is plenty. For fungi, a small piece of dried tissue or a sealed culture. Tell us the name it was sold under.</p>
+            <h3>What you get back</h3>
+            <p>A dated, signed report with the best reference match, its percent identity, the barcode gene (COI or ITS) and a QR link to the sequence trace. If no confident match exists, the report says so.</p>
+          </div>
+          <aside class="tabs__aside">
+            <span class="price">$40</span><p class="small">per specimen. 10% off 5+, 15% off 20+. Sellers get a public record page and a DNAproved species badge.</p>
+            <a class="btn" href="./order.html?service=species">Order species ID</a>
+          </aside>
+        </div>
+
+        <div class="tabs__panel" role="tabpanel" id="detail-edna" aria-labelledby="tab-edna" tabindex="0">
+          <div>
+            <h3>How it works</h3>
+            <ul>
+              <li>We send a field kit, or help you sample anywhere in New Jersey.</li>
+              <li>You filter a measured volume of water and keep the filter cold.</li>
+              <li>We run species-specific PCR for up to 3 targets, beside field and lab blanks.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What you get back</h3>
+            <p>Detected or not detected for each target, with the amplification data and controls behind it. Ask which target species we've validated.</p>
+            <h3>Good to know</h3>
+            <p>eDNA results are screening information, not regulatory findings, and show presence, not how many animals. We agree with you in advance who reports a positive invasive-species result.</p>
+          </div>
+          <aside class="tabs__aside">
+            <span class="price">$135</span><p class="small">per sample, 1 to 3 target species. No ten-sample minimum. At-cost pilot season for NJ lake associations.</p>
+            <a class="btn" href="./order.html?service=edna">Ask about eDNA</a>
+          </aside>
+        </div>
+
+        <div class="tabs__panel" role="tabpanel" id="detail-ferment" aria-labelledby="tab-ferment" tabindex="0">
+          <div>
+            <h3>For breweries and kombucha makers</h3>
+            <ul>
+              <li><strong>Microbe ID, $75 per isolate:</strong> we culture what's growing and name it by DNA, ITS for yeast and 16S for bacteria.</li>
+              <li><strong>QC plan, $150 a month:</strong> a monthly purity screen plus one isolate ID.</li>
+              <li>Lactic acid bacteria such as <i>Lactobacillus</i> and <i>Pediococcus</i> are among the most common beer spoilers. Catching them early saves a batch.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>For bakers</h3>
+            <p>DNA-verified sourdough starter, $14 a packet, with a certificate naming its microbes. Sold in person in New Jersey only, under a cottage food permit; it can't be shipped.</p>
+            <h3>Turnaround</h3>
+            <p>Same-week answers for small breweries that can't justify an in-house lab.</p>
+          </div>
+          <aside class="tabs__aside">
+            <span class="price">$75</span><p class="small">per isolate, or $150 a month for the QC plan. Your first contamination screen is free.</p>
+            <a class="btn" href="./order.html?service=ferment">Ask about microbe testing</a>
+          </aside>
         </div>
       </div>
     </section>
@@ -333,6 +438,7 @@
 
     <!-- Controls -->
     <section class="section gel-field" data-scene="gel" aria-labelledby="controls-title" id="quality">
+      <span id="policy" class="anchor" aria-hidden="true"></span>
       <div class="wrap controls">
         <div class="controls__copy">
           <h2 id="controls-title" data-reveal>What's in every run.</h2>
@@ -376,7 +482,9 @@
             <li>Human samples of any kind. We are not a clinical lab.</li>
             <li>Feathers of native North American wild birds. Captive-bred cage birds and poultry only.</li>
             <li>Live invertebrates. Send dead, dried or frozen specimens.</li>
-            <li>Any sample sent to diagnose disease.</li>
+            <li>Any sample sent to diagnose disease. We work only with low-risk organisms at biosafety level 1.</li>
+            <li>eDNA and seafood results are screening information, not regulatory findings.</li>
+            <li>Sourdough starter is sold in person within New Jersey only.</li>
           </ul>
         </div>
       </div>
@@ -386,40 +494,190 @@
     <section class="section" data-scene="cloud" aria-labelledby="compare-title" id="compare">
       <div class="wrap section-head">
         <h2 id="compare-title" data-reveal>How we compare.</h2>
-        <p data-reveal>Established bird labs are good and often cheap. Here is where we're different, using prices customers and labs have published.</p>
+        <p data-reveal>We can't win on price alone, and we don't try to. We compete on speed, local access and proof, using prices other labs and their customers have published.</p>
       </div>
       <div class="wrap" data-reveal>
         <div class="table-wrap">
           <table class="compare">
-            <caption class="visually-hidden">Bird DNA sexing: DNAProved compared with mail-in labs and veterinary clinics</caption>
-            <thead><tr><th scope="col">Bird DNA sexing</th><th scope="col" class="us">DNAProved</th><th scope="col">Mail-in bird labs</th><th scope="col">Through a vet</th></tr></thead>
+            <caption class="visually-hidden">DNAProved compared with the usual alternatives for each service</caption>
+            <thead><tr><th scope="col">What matters</th><th scope="col" class="us">DNAProved</th><th scope="col">Usual alternatives</th></tr></thead>
+            <tbody class="group"><tr><th colspan="3" scope="colgroup">Bird DNA sexing</th></tr></tbody>
             <tbody>
-              <tr><th scope="row">Price per bird</th><td class="us">$18, first bird half price</td><td>About $12 to $25<span class="src">Prices reported by customers</span></td><td>$35 to $150, including the sample draw<span class="src">Reported by a bird retailer</span></td></tr>
-              <tr><th scope="row">Evidence you can check</th><td class="us">Gel photo on every certificate, by QR code</td><td>Usually a certificate with the result</td><td>Varies</td></tr>
-              <tr><th scope="row">Drop-off</th><td class="us">New Jersey, by appointment, or by mail</td><td>By mail</td><td>At the clinic</td></tr>
-              <tr><th scope="row">Sample types</th><td class="us">Feathers, blood card, swab, eggshell membrane</td><td>Feathers or blood; some take swabs or eggshells</td><td>Usually blood</td></tr>
-              <tr><th scope="row">Turnaround</th><td class="us">2 business days after arrival</td><td>Varies by lab and postage</td><td>Varies</td></tr>
+              <tr><th scope="row">Price</th><td class="us">$18 per bird, first bird half price</td><td>About $12 to $25 at mail-in labs; $35 to $150 through a vet, including the sample draw<span class="src">Customer reports and a bird retailer's published prices</span></td></tr>
+              <tr><th scope="row">Evidence</th><td class="us">Gel photo on every certificate, by QR code</td><td>Usually a certificate with the result only</td></tr>
+              <tr><th scope="row">Access</th><td class="us">New Jersey drop-off by appointment, or mail</td><td>Mail, or a clinic visit</td></tr>
+              <tr><th scope="row">Turnaround</th><td class="us">2 business days after arrival</td><td>Varies by lab and postage</td></tr>
+              <tr><th scope="row">Gentle sampling</th><td class="us">Feathers, swab, eggshell membrane or blood card</td><td>Feathers or blood at most labs; some accept swabs or eggshells</td></tr>
+            </tbody>
+            <tbody class="group"><tr><th colspan="3" scope="colgroup">DNA species ID</th></tr></tbody>
+            <tbody>
+              <tr><th scope="row">Who it's for</th><td class="us">Sellers and buyers who need a dated, signed report to label stock</td><td>Volunteer club labs, free when grant-funded; DIY teaching kits</td></tr>
+              <tr><th scope="row">Proof for listings</th><td class="us">Public record page and DNAproved species badge</td><td>Not usually offered</td></tr>
+              <tr><th scope="row">Hobby trade names</th><td class="us">Reference library built from breeders' founder stock</td><td>Public databases often have no match for undescribed hobby species</td></tr>
+            </tbody>
+            <tbody class="group"><tr><th colspan="3" scope="colgroup">eDNA water screening</th></tr></tbody>
+            <tbody>
+              <tr><th scope="row">Minimum order</th><td class="us">None</td><td>One university lab requires ten samples at $97 per assay<span class="src">Published price list</span></td></tr>
+              <tr><th scope="row">Sampling</th><td class="us">Field kit included, with sampling help in New Jersey</td><td>Customer often supplies filters and does the fieldwork</td></tr>
+            </tbody>
+            <tbody class="group"><tr><th colspan="3" scope="colgroup">Fermentation microbes</th></tr></tbody>
+            <tbody>
+              <tr><th scope="row">Speed</th><td class="us">Same-week answers</td><td>Large brewing labs, often quoted as packages with yeast banking</td></tr>
+              <tr><th scope="row">Price</th><td class="us">$75 per isolate or $150 a month, first screen free</td><td>Quotes vary by package</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="small muted" style="margin-top:20px">Comparing species ID, eDNA or fermentation testing? <a class="link" href="./services.html#compare">See the full comparison</a>.</p>
       </div>
     </section>
 
-    <!-- Offers -->
-    <section class="section--tight field-2" data-scene="barcode" aria-labelledby="offers-title" id="offers">
+    <!-- Launch offers -->
+    <section class="section" id="offers" data-scene="barcode" aria-labelledby="offers-title">
       <div class="wrap section-head">
         <h2 id="offers-title" data-reveal>Launch offers and discounts.</h2>
-        <p data-reveal>Discounts don't stack: your order gets the best one it qualifies for, and the first-bird offer comes on top. <a class="link" href="./services.html#estimate">Estimate your price</a>.</p>
+        <p data-reveal>Discounts don't stack: your order gets the best one it qualifies for, and the first-bird offer comes on top. Claim any of them in your order message.</p>
       </div>
-      <ul class="offers wrap">
-        <li data-reveal><span class="offer__what">Free collection kits</span><span class="offer__who">With every bird sexing order, return postage included.</span></li>
-        <li data-reveal><span class="offer__what">First bird half price</span><span class="offer__who">On your first bird sexing order.</span></li>
-        <li data-reveal><span class="offer__what">10% off 10+ birds, 15% off 25+</span><span class="offer__who">For breeders sexing a clutch or a whole aviary in one order.</span></li>
-        <li data-reveal><span class="offer__what">Clubs, rescues and schools</span><span class="offer__who">10% off bird sexing for clubs, rescues and sanctuaries. 15% off species ID for schools and mycology clubs.</span></li>
-        <li data-reveal><span class="offer__what">eDNA pilot season at cost</span><span class="offer__who">For New Jersey lake associations willing to share a published case study.</span></li>
-        <li data-reveal><span class="offer__what">First contamination screen free</span><span class="offer__who">For breweries, kombucha makers and bakeries.</span></li>
-      </ul>
+      <div class="wrap offer-grid">
+        <article class="offer-banner offer-banner--hero offer-banner--cyan" data-tilt style="--sheen-delay:0s" data-reveal>
+          <span class="offer-banner__tag">Launch offer</span>
+          <div class="offer-banner__big " aria-hidden="true">50%</div>
+          <div class="offer-banner__body">
+            <h3>First bird half price</h3>
+            <p>On your first bird sexing order your first bird is $9 instead of $18, with a free collection kit.</p>
+            <a class="btn btn--small btn--light" href="./order.html?service=bird">Claim this offer</a>
+          </div>
+          <svg class="offer-banner__helix" viewBox="0 0 60 200" aria-hidden="true"><path d="M10 0 C 50 33, 50 67, 10 100 S -30 167, 10 200" fill="none" stroke="currentColor" stroke-width="5"/><path d="M50 0 C 10 33, 10 67, 50 100 S 90 167, 50 200" fill="none" stroke="currentColor" stroke-width="5" opacity=".6"/></svg>
+        </article>
+        <article class="offer-banner offer-banner--hero offer-banner--magenta" data-tilt style="--sheen-delay:1.4s" data-reveal>
+          <span class="offer-banner__tag">Every bird order</span>
+          <div class="offer-banner__big " aria-hidden="true">FREE</div>
+          <div class="offer-banner__body">
+            <h3>Collection kits, postage included</h3>
+            <p>Every bird sexing order ships with envelopes, labels, instructions and a prepaid return envelope.</p>
+            <a class="btn btn--small btn--light" href="./order.html?service=bird">Request a kit</a>
+          </div>
+          <svg class="offer-banner__helix" viewBox="0 0 60 200" aria-hidden="true"><path d="M10 0 C 50 33, 50 67, 10 100 S -30 167, 10 200" fill="none" stroke="currentColor" stroke-width="5"/><path d="M50 0 C 10 33, 10 67, 50 100 S 90 167, 50 200" fill="none" stroke="currentColor" stroke-width="5" opacity=".6"/></svg>
+        </article>
+        <article class="offer-banner offer-banner--sm" data-tilt style="--sheen-delay:2.2s" data-reveal>
+          <span class="offer-banner__tag">Breeders</span>
+          <div class="offer-banner__big is-cyan" aria-hidden="true">15%</div>
+          <div class="offer-banner__body">
+            <h3>Volume pricing</h3>
+            <p>10% off 10 or more birds in one order, 15% off 25 or more.</p>
+            <a class="btn btn--small" href="./order.html?service=bird">Order a clutch</a>
+          </div>
+          <svg class="offer-banner__helix" viewBox="0 0 60 200" aria-hidden="true"><path d="M10 0 C 50 33, 50 67, 10 100 S -30 167, 10 200" fill="none" stroke="currentColor" stroke-width="5"/><path d="M50 0 C 10 33, 10 67, 50 100 S 90 167, 50 200" fill="none" stroke="currentColor" stroke-width="5" opacity=".6"/></svg>
+        </article>
+        <article class="offer-banner offer-banner--sm" data-tilt style="--sheen-delay:3s" data-reveal>
+          <span class="offer-banner__tag">Groups</span>
+          <div class="offer-banner__big is-magenta" aria-hidden="true">10%</div>
+          <div class="offer-banner__body">
+            <h3>Clubs, rescues and schools</h3>
+            <p>10% off bird sexing for clubs, rescues and sanctuaries. 15% off species ID for schools and mycology clubs.</p>
+            <a class="btn btn--small" href="./order.html?service=bulk">Ask for group pricing</a>
+          </div>
+          <svg class="offer-banner__helix" viewBox="0 0 60 200" aria-hidden="true"><path d="M10 0 C 50 33, 50 67, 10 100 S -30 167, 10 200" fill="none" stroke="currentColor" stroke-width="5"/><path d="M50 0 C 10 33, 10 67, 50 100 S 90 167, 50 200" fill="none" stroke="currentColor" stroke-width="5" opacity=".6"/></svg>
+        </article>
+        <article class="offer-banner offer-banner--sm" data-tilt style="--sheen-delay:3.8s" data-reveal>
+          <span class="offer-banner__tag">Lake groups</span>
+          <div class="offer-banner__big is-word" aria-hidden="true">At cost</div>
+          <div class="offer-banner__body">
+            <h3>eDNA pilot season</h3>
+            <p>For New Jersey lake associations willing to share a published case study.</p>
+            <a class="btn btn--small" href="./order.html?service=edna">Apply for the pilot</a>
+          </div>
+          <svg class="offer-banner__helix" viewBox="0 0 60 200" aria-hidden="true"><path d="M10 0 C 50 33, 50 67, 10 100 S -30 167, 10 200" fill="none" stroke="currentColor" stroke-width="5"/><path d="M50 0 C 10 33, 10 67, 50 100 S 90 167, 50 200" fill="none" stroke="currentColor" stroke-width="5" opacity=".6"/></svg>
+        </article>
+        <article class="offer-banner offer-banner--sm" data-tilt style="--sheen-delay:4.6s" data-reveal>
+          <span class="offer-banner__tag">Fermentation</span>
+          <div class="offer-banner__big is-cyan" aria-hidden="true">FREE</div>
+          <div class="offer-banner__body">
+            <h3>First contamination screen</h3>
+            <p>For breweries, kombucha makers and bakeries trying the QC plan.</p>
+            <a class="btn btn--small" href="./order.html?service=ferment">Book your screen</a>
+          </div>
+          <svg class="offer-banner__helix" viewBox="0 0 60 200" aria-hidden="true"><path d="M10 0 C 50 33, 50 67, 10 100 S -30 167, 10 200" fill="none" stroke="currentColor" stroke-width="5"/><path d="M50 0 C 10 33, 10 67, 50 100 S 90 167, 50 200" fill="none" stroke="currentColor" stroke-width="5" opacity=".6"/></svg>
+        </article>
+      </div>
+    </section>
+
+    <!-- Prices -->
+    <section class="section field-2" id="pricing" data-scene="cloud" aria-labelledby="p-title">
+      <div class="wrap section-head">
+        <h2 id="p-title" data-reveal>Every price in one place.</h2>
+        <p data-reveal>Prices are per sample in US dollars. Nothing is charged on this website; we email you the final price with your kit.</p>
+      </div>
+      <div class="wrap" data-reveal>
+        <div class="table-wrap">
+          <table class="price-table">
+            <caption class="visually-hidden">DNAProved prices</caption>
+            <thead><tr><th scope="col">Service</th><th scope="col">Price</th><th scope="col">Includes</th><th scope="col">Discounts</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Bird DNA sexing</th><td class="amt">$18 per bird</td><td>Free collection kit with return postage, certificate, gel photo</td><td>First bird half price. 10% off 10+, 15% off 25+. 10% for clubs, rescues and sanctuaries.</td></tr>
+              <tr><th scope="row">DNA species ID</th><td class="amt">$40 per specimen</td><td>Barcode sequencing, database match, sequence trace, signed report</td><td>10% off 5+, 15% off 20+. 15% for schools and mycology clubs.</td></tr>
+              <tr><th scope="row">eDNA water screening</th><td class="amt">$135 per sample</td><td>1 to 3 target species, field kit, field and lab blanks</td><td>10% off 5+. At-cost pilot season for NJ lake associations.</td></tr>
+              <tr><th scope="row">Microbe ID</th><td class="amt">$75 per isolate</td><td>Culture, ITS or 16S sequencing, report</td><td>First contamination screen free.</td></tr>
+              <tr><th scope="row">Brewery QC plan</th><td class="amt">$150 per month</td><td>Monthly purity screen plus one isolate ID</td><td>First contamination screen free.</td></tr>
+              <tr><th scope="row">Verified sourdough starter</th><td class="amt">$14 per packet</td><td>Starter with a certificate naming its microbes</td><td>In person in New Jersey only.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estimate -->
+    <section class="section" id="estimate" data-scene="chromatogram" aria-labelledby="est-title">
+      <div class="wrap section-head">
+        <h2 id="est-title" data-reveal>Estimate your price.</h2>
+        <p data-reveal>Choose a service and quantity, tick what applies, and see the total with your discount. We confirm the final price by email.</p>
+      </div>
+      <div class="wrap calc" data-estimate>
+        <div class="calc__form" data-reveal>
+          <div class="field">
+            <label for="est-service">Service</label>
+            <select id="est-service">
+              <option value="bird">Bird DNA sexing ($18 per bird)</option>
+              <option value="species">DNA species ID ($40 per specimen)</option>
+              <option value="edna">eDNA water screening ($135 per sample)</option>
+              <option value="microbe">Microbe ID ($75 per isolate)</option>
+              <option value="qc">Brewery QC plan ($150 per month)</option>
+              <option value="starter">Verified sourdough starter ($14 per packet)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="est-qty">How many</label>
+            <input id="est-qty" type="number" min="1" max="999" value="1" inputmode="numeric">
+          </div>
+          <label class="check" data-first-wrap><input id="est-first" type="checkbox" checked><span>This is my first bird sexing order (first bird half price)</span></label>
+          <label class="check" data-group-wrap><input id="est-group" type="checkbox"><span data-group-label>Club, rescue or sanctuary (10% off)</span></label>
+        </div>
+        <div class="calc__out" aria-live="polite" data-reveal>
+          <h3>Your estimate</h3>
+          <ul class="calc__lines" data-est-lines><li><span>1 × bird dna sexing at $18</span><span>$18</span></li></ul>
+          <div class="calc__total"><span>Estimated total</span><strong data-est-total>$9</strong></div>
+          <p class="small muted" data-est-note style="margin:16px 0 20px">Includes a free collection kit with return postage.</p>
+          <a class="btn" data-est-order href="./order.html?service=bird">Order this</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section field-2" id="faq" data-scene="cloud" aria-labelledby="faq-title">
+      <div class="wrap section-head">
+        <h2 id="faq-title" data-reveal>Questions people ask.</h2>
+        <p data-reveal>Can't find yours? Ask the assistant in the corner or email <a class="link" href="mailto:dna.proved@gmail.com">dna.proved@gmail.com</a>.</p>
+      </div>
+      <div class="wrap faq" data-reveal>
+        <details><summary>How do I know the result is right?</summary><div><p>Every run includes a known male and a known female bird, an extraction blank and a no-template PCR control, and a run with a failed control is repeated, never reported. We validate each test on samples of known identity before we sell it, send blind duplicates to another lab each quarter, and link every report to its raw gel photo or sequence trace.</p></div></details>
+        <details><summary>Which birds can you sex?</summary><div><p>Most captive-bred parrots, pigeons, doves, finches, canaries and domestic poultry. A few groups need different primers and ratites such as ostriches may not be covered, so ask before sending.</p></div></details>
+        <details><summary>Can you sex a chick from its eggshell?</summary><div><p>Yes. Keep the shell of a freshly hatched egg with its inner membrane, don't wash it, and send it in a paper envelope labelled with the chick's ID.</p></div></details>
+        <details><summary>How fast will I get results?</summary><div><p>Bird sexing results come back 2 business days after your sample arrives. Sequencing-based tests take a little longer, and we confirm timing when you order.</p></div></details>
+        <details><summary>How do I pay?</summary><div><p>Nothing is charged on this website. After you send a request, we email you the kit, the final price and how to pay.</p></div></details>
+        <details><summary>What if my isopod isn't in any database?</summary><div><p>Then your report says so, and shows the closest match with its percent identity. Many hobby isopods are undescribed species, which is why we're building a reference library of trade names from respected breeders' founder stock.</p></div></details>
+        <details><summary>Will a positive eDNA result be reported to the state?</summary><div><p>We agree that with you before sampling. eDNA results are screening information, and we settle in advance who reports a positive invasive-species detection.</p></div></details>
+        <details><summary>Can you ship sourdough starter?</summary><div><p>No. Under New Jersey's cottage food rules, starter is sold in person within the state only.</p></div></details>
+        <details><summary>How long do you keep my sample?</summary><div><p>We keep extracted DNA for 90 days after your result, so a re-test in that time is free.</p></div></details>
+        <details><summary>Do you test human DNA?</summary><div><p>No. We never accept human samples. DNAProved tests animal, environmental and microbial samples only.</p></div></details>
+      </div>
     </section>
 
     <!-- Science teaser -->
@@ -454,10 +712,10 @@
     <div class="wrap">
       <div class="footer-word" aria-hidden="true"><span class="d">DNA</span><span class="p">Proved</span></div>
       <div class="footer-cols">
-        <div><h2>Services</h2><a href="./services.html#birds">Bird DNA sexing</a><a href="./services.html#species">DNA species ID</a><a href="./services.html#edna">eDNA water screening</a><a href="./services.html#ferment">Fermentation microbes</a></div>
-        <div><h2>Learn</h2><a href="./science.html">The science</a><a href="./services.html#pricing">Prices and discounts</a><a href="./services.html#compare">How we compare</a><a href="./services.html#faq">Questions</a></div>
+        <div><h2>Tests</h2><a href="#detail-birds">Bird DNA sexing</a><a href="#detail-species">DNA species ID</a><a href="#detail-edna">eDNA water screening</a><a href="#detail-ferment">Fermentation microbes</a></div>
+        <div><h2>Learn</h2><a href="./science.html">The science</a><a href="#pricing">Prices and discounts</a><a href="#compare">How we compare</a><a href="#faq">Questions</a></div>
         <div><h2>Contact</h2><a href="mailto:dna.proved@gmail.com">dna.proved@gmail.com</a><p>New Jersey, USA. Drop-off by appointment.</p><a href="./order.html">Start an order</a></div>
-        <div><h2>Policies</h2><a href="./services.html#policy">Sample acceptance</a><a href="./credits.html">Picture credits</a></div>
+        <div><h2>Policies</h2><a href="#quality">Sample policy</a><a href="./credits.html">Picture credits</a></div>
       </div>
       <div class="footer-legal">
         <p>© 2026 DNAProved. We test animal, environmental and microbial samples only, never human samples.</p>

@@ -89,7 +89,7 @@
       if (!a) return;
       var url = new URL(a.href, location.href);
       if (url.pathname !== location.pathname || !url.hash) return;
-      var t = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      var t = url.hash.indexOf("#detail-") === 0 ? ($("[data-tabs]") || document.getElementById(url.hash.slice(1))) : document.getElementById(decodeURIComponent(url.hash.slice(1)));
       if (!t) return;
       e.preventDefault();
       lenis.scrollTo(t, { offset: -80, duration: 1.4 });
@@ -254,21 +254,43 @@
     var sec = $(".carousel");
     if (!sec) return;
     var track = $(".carousel__track", sec), cards = $$(".card", sec), bar = $(".carousel__bar span", sec), counter = $("[data-carousel-count]", sec);
+    var viewport = $(".carousel__viewport", sec), prev = $("[data-carousel-prev]", sec), next = $("[data-carousel-next]", sec);
     var active = -1;
     var activate = function (i) {
       if (i === active) return;
       active = i;
       cards.forEach(function (c, k) { c.classList.toggle("is-active", k === i); });
       if (counter) counter.textContent = String(i + 1);
+      if (prev) prev.disabled = i <= 0;
+      if (next) next.disabled = i >= cards.length - 1;
       setScene(cards[i].dataset.scene, innerWidth > 900 ? CENTER : null);
     };
 
-    if (!gsap || !ST || reduceMotion) {
-      // swipeable row; the card in view picks the scene
+    // swipe row (phones, reduced motion): scroll the row itself to centre a card
+    var swipeTo = function (i) {
+      var c = cards[i];
+      if (c) viewport.scrollTo({ left: c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2, behavior: reduceMotion ? "auto" : "smooth" });
+    };
+    var goTo = swipeTo;
+    var step = function (d) { goTo(Math.max(0, Math.min(cards.length - 1, Math.max(0, active) + d))); };
+    if (prev) prev.addEventListener("click", function () { step(-1); });
+    if (next) next.addEventListener("click", function () { step(1); });
+    sec.addEventListener("keydown", function (e) {
+      if (e.target.closest("input, textarea, select")) return;
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    });
+    var watchRow = function () {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { if (en.isIntersecting) activate(cards.indexOf(en.target)); });
-      }, { root: $(".carousel__viewport", sec), threshold: 0.6 });
+      }, { root: viewport, threshold: 0.6 });
       cards.forEach(function (c) { io.observe(c); });
+      return io;
+    };
+
+    if (!gsap || !ST || reduceMotion) {
+      activate(0);
+      watchRow();
       return;
     }
 
@@ -304,14 +326,19 @@
           onToggle: function (self) { if (self.isActive) setScene(cards[Math.max(0, active)].dataset.scene, CENTER); }
         }
       });
+      // pinned carousel: the arrows scroll the page to where card i sits in the centre
+      goTo = function (i) {
+        var st = tw.scrollTrigger;
+        if (!st) return;
+        var x = Math.max(-distance, Math.min(0, -(offsets[i] + widths[i] / 2 - vw / 2)));
+        var y = st.start + (distance ? -x / distance : 0) * (st.end - st.start) + 2;
+        if (lenis) lenis.scrollTo(y, { duration: 1.2 }); else window.scrollTo({ top: y, behavior: "smooth" });
+      };
       place();
-      return function () { tw.kill(); cards.forEach(function (c) { c.style.transform = ""; c.style.opacity = ""; }); };
+      return function () { tw.kill(); goTo = swipeTo; cards.forEach(function (c) { c.style.transform = ""; c.style.opacity = ""; }); };
     });
     mm.add("(max-width: 900px)", function () {
-      var io2 = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) { if (en.isIntersecting) activate(cards.indexOf(en.target)); });
-      }, { root: $(".carousel__viewport", sec), threshold: 0.6 });
-      cards.forEach(function (c) { io2.observe(c); });
+      var io2 = watchRow();
       var st = ST.create({ trigger: sec, start: "top 60%", end: "bottom 40%", onToggle: function (self) { if (self.isActive) setScene(cards[Math.max(0, active)].dataset.scene); } });
       return function () { io2.disconnect(); st.kill(); };
     });
