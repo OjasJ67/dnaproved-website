@@ -22,8 +22,8 @@ Static website for DNAProved, a New Jersey DNA lab offering bird DNA sexing, DNA
 
 ## Deploy by drag and drop (Netlify Drop)
 
-1. Unzip `DNAProved-netlify.zip`. You get a folder named `dnaproved-site`.
-2. Go to [app.netlify.com/drop](https://app.netlify.com/drop) (sign in first so the site is saved to your account) and drag the `dnaproved-site` folder onto the page.
+1. Go to [app.netlify.com/drop](https://app.netlify.com/drop) (sign in first so the site is saved to your account).
+2. Drag `DNAProved-netlify.zip` itself onto the page. If you unzip it instead, drag the folder whose top level contains `index.html`, never a folder above it, or the site ends up one level too deep and the home page shows "That page isn't here".
 3. Netlify sees `package.json`, installs the chat function's dependency and publishes. Afterwards open the site's **Functions** page and check that `chat` is listed. If it isn't, use the GitHub method below; until then the chat widget answers from its built-in FAQ.
 4. Then do steps 2 and 3 of the GitHub method (API key and form notifications).
 
