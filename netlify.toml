@@ -1,5 +1,6 @@
 [build]
-  publish = "."
+  command = "echo No build step: static site plus one function"
+  publish = "site"
   functions = "netlify/functions"
 
 [functions]

@@ -6,18 +6,18 @@ Static website for DNAProved, a New Jersey DNA lab offering bird DNA sexing, DNA
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Home: live gel, peer-reviewed statistics, the four services, how it works, quality controls, comparison, offers |
-| `services.html` | Full service details, collection instructions, prices, price estimator, comparison, sample policy, FAQ |
-| `science.html` | Deep dive: DNA, extraction, PCR simulator, gels, bird sexing, Sanger sequencing, barcoding, eDNA, microbes, references |
-| `order.html` | Order composer with preset emails per service |
-| `credits.html` | Picture sources and licences |
-| `404.html` | Not-found page |
+| `site/index.html` | Home: live gel, peer-reviewed statistics, the four services, how it works, quality controls, comparison, offers |
+| `site/services.html` | Full service details, collection instructions, prices, price estimator, comparison, sample policy, FAQ |
+| `site/science.html` | Deep dive: DNA, extraction, PCR simulator, gels, bird sexing, Sanger sequencing, barcoding, eDNA, microbes, references |
+| `site/order.html` | Order composer with preset emails per service |
+| `site/credits.html` | Picture sources and licences |
+| `site/404.html` | Not-found page |
 
 ## The immersive layer
 
-- `assets/js/scene.js` — a Three.js particle world (about 18,000 points on desktop, 7,000 on phones) that re-forms per section: DNA helix, unzipping helix, gel bands, Z/W chromosomes, barcode, Sanger trace, lake water, yeast cells and the DNAProved wordmark. Sections choose their formation with `data-scene="…"`. Particles scatter from the cursor and spin faster with scroll speed.
-- `assets/js/fx.js` — sequencing preloader (first page of a visit), gel-lane page transitions, Lenis smooth scrolling, headings that decode out of A/C/G/T, custom cursor, magnetic buttons, card tilt, velocity-reactive marquees, film grain, progress bar and the pinned 3D services carousel.
-- `assets/css/fx.css` — styles for all of the above.
+- `site/assets/js/scene.js` — a Three.js particle world (about 18,000 points on desktop, 7,000 on phones) that re-forms per section: DNA helix, unzipping helix, gel bands, Z/W chromosomes, barcode, Sanger trace, lake water, yeast cells and the DNAProved wordmark. Sections choose their formation with `data-scene="…"`. Particles scatter from the cursor and spin faster with scroll speed.
+- `site/assets/js/fx.js` — sequencing preloader (first page of a visit), gel-lane page transitions, Lenis smooth scrolling, headings that decode out of A/C/G/T, custom cursor, magnetic buttons, card tilt, velocity-reactive marquees, film grain, progress bar and the pinned 3D services carousel.
+- `site/assets/css/fx.css` — styles for all of the above.
 - Visitors who prefer reduced motion get the full content without the motion; browsers without WebGL get the same pages on a dark background.
 
 ## Deploy by drag and drop (Netlify Drop)
@@ -30,20 +30,20 @@ Static website for DNAProved, a New Jersey DNA lab offering bird DNA sexing, DNA
 
 ## Deploy from GitHub
 
-1. In Netlify, choose **Add new site → Import an existing project** and pick this GitHub repository. No build command is needed; `netlify.toml` publishes the repository root and deploys the function in `netlify/functions`.
+1. In Netlify, choose **Add new site → Import an existing project** and pick this GitHub repository. `netlify.toml` sets a no-op build command, publishes the `site/` folder and deploys the function in `netlify/functions`.
 2. **Chat assistant:** in **Site configuration → Environment variables**, add `ANTHROPIC_API_KEY` with a key from the Claude Console. Optional: `CHAT_MODEL` to use another Claude model (default `claude-opus-5-5`; `claude-haiku-5-5` is cheaper and faster). Set a monthly spend limit in the Claude Console. Without a key, the widget answers from its built-in FAQ.
 3. **Order emails:** after the first deploy, open **Forms** and enable form detection if asked, then go to **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, choose the `order-inquiry` form and enter `dna.proved@gmail.com`. Each order then arrives in that inbox with the customer's name, company, email and message.
 4. Redeploy once after enabling forms so Netlify registers the `order-inquiry` form.
 
 ## Editing
 
-- **Prices and discounts:** `PRICING`, `VOLUME` and `GROUP` at the top of `assets/js/site.js` (the estimator), plus the matching text in `index.html`, `services.html` and the chat knowledge in `netlify/functions/chat/knowledge.mjs`.
-- **Order email templates:** `TEMPLATES` in `assets/js/order.js`.
+- **Prices and discounts:** `PRICING`, `VOLUME` and `GROUP` at the top of `site/assets/js/site.js` (the estimator), plus the matching text in `site/index.html`, `site/services.html` and the chat knowledge in `netlify/functions/chat/knowledge.mjs`.
+- **Order email templates:** `TEMPLATES` in `site/assets/js/order.js`.
 - **Chat assistant knowledge:** `netlify/functions/chat/knowledge.mjs`.
-- **Colours and type:** tokens at the top of `assets/css/site.css`.
+- **Colours and type:** tokens at the top of `site/assets/css/site.css`.
 
 Nothing is fixed in the bottom-right corner of any page, so the Netlify badge never covers content; the chat button sits bottom-left.
 
 ## Picture credits
 
-Photographs and illustrations come from Wikimedia Commons under public domain, CC0, CC BY and CC BY-SA licences, listed in `assets/img/credits.json` and on `credits.html`.
+Photographs and illustrations come from Wikimedia Commons under public domain, CC0, CC BY and CC BY-SA licences, listed in `site/assets/img/credits.json` and on `credits.html`.
