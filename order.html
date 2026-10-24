@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Start an order | DNAProved</title>
   <meta name="description" content="Order bird DNA sexing, DNA species ID, eDNA water screening or fermentation microbe testing from DNAProved. Choose a request, add your details and send it to the lab.">
-  <meta name="theme-color" content="#0e2a3b">
+  <meta name="theme-color" content="#050d14">
   <meta property="og:title" content="Start an order | DNAProved">
   <meta property="og:image" content="/assets/img/og-image.jpg">
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
@@ -14,9 +14,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
   <link rel="stylesheet" href="./assets/css/site.css">
-  <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("js-motion");window.__motionTimer=setTimeout(function(){document.documentElement.classList.add("motion-fallback")},3000)}</script>
+  <link rel="stylesheet" href="./assets/css/fx.css">
+  <script>(function(){var d=document.documentElement,rm=matchMedia("(prefers-reduced-motion: reduce)").matches;try{if(!rm&&!sessionStorage.getItem("dnaLoaded"))d.classList.add("is-loading");if(sessionStorage.getItem("dnaTransition")==="1"){sessionStorage.removeItem("dnaTransition");if(!rm)d.classList.add("is-entering")}}catch(e){}if(!rm){d.classList.add("js-motion");window.__motionTimer=setTimeout(function(){d.classList.add("motion-fallback")},4500)}})();</script>
 </head>
 <body>
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <img class="preloader__mark" src="./assets/img/logo-mark.png" alt="" width="134" height="258">
+      <div class="preloader__count"><span data-pl-count>000</span><span class="preloader__slash">/100</span></div>
+      <div class="preloader__seq" data-pl-seq>ATGCGTACCGATTACAGGTCATGCAT</div>
+      <div class="preloader__bar"><span data-pl-bar></span></div>
+      <p class="preloader__label">Sequencing</p>
+    </div>
+  </div>
+  <div class="page-transition" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="webgl" aria-hidden="true"><canvas id="dna-canvas"></canvas></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__shape"><span class="cursor__label"></span></span></span><span class="cursor__dot"></span></div>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -34,7 +50,7 @@
   </header>
 
   <main id="main">
-    <section class="page-hero wrap" aria-labelledby="order-title">
+    <section data-scene="helix" class="page-hero wrap" aria-labelledby="order-title">
       <div class="page-hero__grid">
         <div class="page-hero__copy">
           <h1 id="order-title" data-split>Start an order.</h1>
@@ -50,7 +66,7 @@
       </div>
     </section>
 
-    <section class="section--tight field-2" aria-labelledby="compose-title">
+    <section data-scene="cloud" class="section--tight field-2" aria-labelledby="compose-title">
       <div class="wrap">
         <h2 id="compose-title" class="visually-hidden">Compose your request</h2>
         <form class="order" name="order-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="./order.html?sent=1" novalidate data-order>
@@ -111,7 +127,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="next-title">
+    <section data-scene="wordmark" class="section" aria-labelledby="next-title">
       <div class="wrap cta">
         <h2 id="next-title" data-reveal>Not sure what to order?</h2>
         <div class="cta__side" data-reveal>
@@ -141,8 +157,11 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
   <script src="./assets/js/site.js" defer></script>
   <script src="./assets/js/order.js" defer></script>
+  <script src="./assets/js/fx.js" defer></script>
   <script src="./assets/js/chat.js" defer></script>
+  <script type="module" src="./assets/js/scene.js"></script>
 </body>
 </html>

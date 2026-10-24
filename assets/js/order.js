@@ -47,12 +47,16 @@
   var status = form.querySelector("[data-status]");
   var sendBtn = form.querySelector("[data-send]");
 
+  var syncChecked = function () {
+    radios.forEach(function (r) { r.closest(".choice").classList.toggle("is-checked", r.checked); });
+  };
   var fill = function (key) {
     if (current) drafts[current] = { subject: subject.value, body: message.value };
     current = key;
     var d = drafts[key] || { subject: TEMPLATES[key].subject, body: TEMPLATES[key].body.replace("{qty}", String(qty)) };
     subject.value = d.subject;
     message.value = d.body;
+    syncChecked();
   };
   radios.forEach(function (r) { r.addEventListener("change", function () { if (r.checked) fill(r.dataset.key); }); });
 

@@ -54,7 +54,7 @@
   panel.innerHTML =
     "<div class=\"chat-panel__head\"><div><strong>DNAProved assistant</strong><span>Answers about our tests, prices and samples</span></div>" +
     "<button type=\"button\" class=\"chat-close\" aria-label=\"Close chat\">×</button></div>" +
-    "<div class=\"chat-log\" role=\"log\" aria-live=\"polite\"></div>" +
+    "<div class=\"chat-log\" role=\"log\" aria-live=\"polite\" data-lenis-prevent></div>" +
     "<div><form class=\"chat-form\"><label class=\"visually-hidden\" for=\"chat-input\">Your question</label>" +
     "<textarea id=\"chat-input\" rows=\"1\" maxlength=\"1000\" placeholder=\"Type your question\"></textarea>" +
     "<button class=\"btn btn--small\" type=\"submit\">Send</button></form>" +

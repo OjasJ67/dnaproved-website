@@ -13,7 +13,21 @@ Static website for DNAProved, a New Jersey DNA lab offering bird DNA sexing, DNA
 | `credits.html` | Picture sources and licences |
 | `404.html` | Not-found page |
 
-## Deploy on Netlify
+## The immersive layer
+
+- `assets/js/scene.js` — a Three.js particle world (about 18,000 points on desktop, 7,000 on phones) that re-forms per section: DNA helix, unzipping helix, gel bands, Z/W chromosomes, barcode, Sanger trace, lake water, yeast cells and the DNAProved wordmark. Sections choose their formation with `data-scene="…"`. Particles scatter from the cursor and spin faster with scroll speed.
+- `assets/js/fx.js` — sequencing preloader (first page of a visit), gel-lane page transitions, Lenis smooth scrolling, headings that decode out of A/C/G/T, custom cursor, magnetic buttons, card tilt, velocity-reactive marquees, film grain, progress bar and the pinned 3D services carousel.
+- `assets/css/fx.css` — styles for all of the above.
+- Visitors who prefer reduced motion get the full content without the motion; browsers without WebGL get the same pages on a dark background.
+
+## Deploy by drag and drop (Netlify Drop)
+
+1. Unzip `DNAProved-netlify.zip`. You get a folder named `dnaproved-site`.
+2. Go to [app.netlify.com/drop](https://app.netlify.com/drop) (sign in first so the site is saved to your account) and drag the `dnaproved-site` folder onto the page.
+3. Netlify sees `package.json`, installs the chat function's dependency and publishes. Afterwards open the site's **Functions** page and check that `chat` is listed. If it isn't, use the GitHub method below; until then the chat widget answers from its built-in FAQ.
+4. Then do steps 2 and 3 of the GitHub method (API key and form notifications).
+
+## Deploy from GitHub
 
 1. In Netlify, choose **Add new site → Import an existing project** and pick this GitHub repository. No build command is needed; `netlify.toml` publishes the repository root and deploys the function in `netlify/functions`.
 2. **Chat assistant:** in **Site configuration → Environment variables**, add `ANTHROPIC_API_KEY` with a key from the Claude Console. Optional: `CHAT_MODEL` to use another Claude model (default `claude-opus-5-5`; `claude-haiku-5-5` is cheaper and faster). Set a monthly spend limit in the Claude Console. Without a key, the widget answers from its built-in FAQ.

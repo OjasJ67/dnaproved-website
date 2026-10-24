@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The science | How PCR, gels and DNA sequencing work | DNAProved</title>
   <meta name="description" content="How DNAProved's tests work: DNA extraction, PCR, gel electrophoresis, bird sexing with the CHD1 gene, Sanger sequencing, DNA barcoding, eDNA and microbe identification, with peer-reviewed references.">
-  <meta name="theme-color" content="#0e2a3b">
+  <meta name="theme-color" content="#050d14">
   <meta property="og:title" content="The science behind DNAProved">
   <meta property="og:image" content="/assets/img/og-image.jpg">
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
@@ -14,9 +14,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
   <link rel="stylesheet" href="./assets/css/site.css">
-  <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("js-motion");window.__motionTimer=setTimeout(function(){document.documentElement.classList.add("motion-fallback")},3000)}</script>
+  <link rel="stylesheet" href="./assets/css/fx.css">
+  <script>(function(){var d=document.documentElement,rm=matchMedia("(prefers-reduced-motion: reduce)").matches;try{if(!rm&&!sessionStorage.getItem("dnaLoaded"))d.classList.add("is-loading");if(sessionStorage.getItem("dnaTransition")==="1"){sessionStorage.removeItem("dnaTransition");if(!rm)d.classList.add("is-entering")}}catch(e){}if(!rm){d.classList.add("js-motion");window.__motionTimer=setTimeout(function(){d.classList.add("motion-fallback")},4500)}})();</script>
 </head>
 <body>
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <img class="preloader__mark" src="./assets/img/logo-mark.png" alt="" width="134" height="258">
+      <div class="preloader__count"><span data-pl-count>000</span><span class="preloader__slash">/100</span></div>
+      <div class="preloader__seq" data-pl-seq>ATGCGTACCGATTACAGGTCATGCAT</div>
+      <div class="preloader__bar"><span data-pl-bar></span></div>
+      <p class="preloader__label">Sequencing</p>
+    </div>
+  </div>
+  <div class="page-transition" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="webgl" aria-hidden="true"><canvas id="dna-canvas"></canvas></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__shape"><span class="cursor__label"></span></span></span><span class="cursor__dot"></span></div>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -34,7 +50,7 @@
   </header>
 
   <main id="main">
-    <section class="page-hero wrap" aria-labelledby="sci-title">
+    <section data-scene="helix" class="page-hero wrap" aria-labelledby="sci-title">
       <div class="page-hero__grid">
         <div class="page-hero__copy">
           <h1 id="sci-title" data-split>The science, step by step.</h1>
@@ -61,7 +77,7 @@
     </section>
 
     <!-- DNA -->
-    <section class="sci gel-field" id="dna" aria-labelledby="dna-title">
+    <section data-scene="helix" class="sci gel-field" id="dna" aria-labelledby="dna-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="dna-title" data-reveal>DNA is a code in four letters.</h2>
@@ -80,7 +96,7 @@
     </section>
 
     <!-- Extraction -->
-    <section class="sci sci--flip" id="extract" aria-labelledby="ex-title">
+    <section data-scene="cells" class="sci sci--flip" id="extract" aria-labelledby="ex-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="ex-title" data-reveal>First, get the DNA out.</h2>
@@ -100,30 +116,30 @@
                 <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
                 <path d="M-34 110 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#f3c6d8"/>
                 <circle cx="-12" cy="160" r="6" fill="#c12b6c"/><circle cx="10" cy="190" r="5" fill="#c12b6c"/><circle cx="4" cy="140" r="4" fill="#c12b6c"/>
-                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Lyse</text>
-                <text y="314" font-size="14" fill="#3a5161">cells burst</text>
+                <text y="290" font-size="22" font-weight="700" fill="#e9f3f7">Lyse</text>
+                <text y="314" font-size="14" fill="#a3b9c4">cells burst</text>
               </g>
               <g transform="translate(240 40)">
                 <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
                 <rect x="-34" y="120" width="68" height="18" fill="#57b8e0"/>
                 <path d="M-20 129 q6 -8 12 0 t12 0 t12 0" stroke="#0f2433" stroke-width="3" fill="none"/>
-                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Bind</text>
-                <text y="314" font-size="14" fill="#3a5161">DNA on silica</text>
+                <text y="290" font-size="22" font-weight="700" fill="#e9f3f7">Bind</text>
+                <text y="314" font-size="14" fill="#a3b9c4">DNA on silica</text>
               </g>
               <g transform="translate(390 40)">
                 <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
                 <rect x="-34" y="120" width="68" height="18" fill="#57b8e0"/>
                 <path d="M-20 129 q6 -8 12 0 t12 0 t12 0" stroke="#0f2433" stroke-width="3" fill="none"/>
                 <path d="M-34 160 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#e6f0f3"/>
-                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Wash</text>
-                <text y="314" font-size="14" fill="#3a5161">impurities out</text>
+                <text y="290" font-size="22" font-weight="700" fill="#e9f3f7">Wash</text>
+                <text y="314" font-size="14" fill="#a3b9c4">impurities out</text>
               </g>
               <g transform="translate(540 40)">
                 <path d="M-34 0 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#ffffff"/>
                 <path d="M-34 170 H34 V180 Q34 230 0 250 Q-34 230 -34 180 Z" fill="#bfe6f5"/>
                 <path d="M-14 205 q5 -7 10 0 t10 0" stroke="#0f2433" stroke-width="3" fill="none"/>
-                <text y="290" font-size="22" font-weight="700" fill="#0f2433">Elute</text>
-                <text y="314" font-size="14" fill="#3a5161">clean DNA</text>
+                <text y="290" font-size="22" font-weight="700" fill="#e9f3f7">Elute</text>
+                <text y="314" font-size="14" fill="#a3b9c4">clean DNA</text>
               </g>
             </g>
           </svg>
@@ -133,7 +149,7 @@
     </section>
 
     <!-- PCR -->
-    <section class="sci gel-field" id="pcr" aria-labelledby="pcr-title">
+    <section data-scene="unzip" class="sci gel-field" id="pcr" aria-labelledby="pcr-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="pcr-title" data-reveal>PCR copies one gene, fast.</h2>
@@ -177,7 +193,7 @@
     </section>
 
     <!-- Gel -->
-    <section class="sci sci--flip" id="gel" aria-labelledby="gel-title">
+    <section data-scene="gel" class="sci sci--flip" id="gel" aria-labelledby="gel-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="gel-title" data-reveal>Reading DNA by its length.</h2>
@@ -194,7 +210,7 @@
     </section>
 
     <!-- Bird sexing -->
-    <section class="sci field-2" id="sexing" aria-labelledby="sex-title">
+    <section data-scene="zw" class="sci field-2" id="sexing" aria-labelledby="sex-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="sex-title" data-reveal>Telling the sexes apart.</h2>
@@ -205,24 +221,24 @@
           <div class="note" data-reveal><strong>Where it needs care.</strong> Ostriches, emus and other ratites have sex chromosomes that are hard to tell apart with this method. In a few species, natural variation on the Z chromosome can add an extra band, which could make a male look female. That is why we validate each species group and run a known male and known female in every batch.</div>
         </div>
         <figure class="sci__fig figure" data-reveal>
-          <svg viewBox="0 0 640 520" role="img" aria-label="Diagram: a male bird has two Z chromosomes and shows one band; a female has a Z and a W chromosome and shows two bands" style="background:var(--white)">
+          <svg viewBox="0 0 640 520" role="img" aria-label="Diagram: a male bird has two Z chromosomes and shows one band; a female has a Z and a W chromosome and shows two bands" style="background:var(--gel-2)">
             <g font-family="Archivo, sans-serif">
-              <text x="160" y="44" text-anchor="middle" font-size="26" font-weight="760" fill="#0f2433">Male, ZZ</text>
-              <text x="480" y="44" text-anchor="middle" font-size="26" font-weight="760" fill="#0f2433">Female, ZW</text>
+              <text x="160" y="44" text-anchor="middle" font-size="26" font-weight="760" fill="#e9f3f7">Male, ZZ</text>
+              <text x="480" y="44" text-anchor="middle" font-size="26" font-weight="760" fill="#e9f3f7">Female, ZW</text>
               <!-- male chromosomes -->
               <g transform="translate(110 70)">
                 <rect x="0" y="0" width="34" height="170" rx="17" fill="#57b8e0"/><rect x="66" y="0" width="34" height="170" rx="17" fill="#57b8e0"/>
                 <rect x="0" y="92" width="34" height="16" fill="#0a6e97"/><rect x="66" y="92" width="34" height="16" fill="#0a6e97"/>
-                <text x="17" y="196" text-anchor="middle" font-size="18" fill="#0f2433">Z</text><text x="83" y="196" text-anchor="middle" font-size="18" fill="#0f2433">Z</text>
+                <text x="17" y="196" text-anchor="middle" font-size="18" fill="#e9f3f7">Z</text><text x="83" y="196" text-anchor="middle" font-size="18" fill="#e9f3f7">Z</text>
               </g>
               <!-- female chromosomes -->
               <g transform="translate(430 70)">
                 <rect x="0" y="0" width="34" height="170" rx="17" fill="#57b8e0"/><rect x="66" y="40" width="34" height="110" rx="17" fill="#c12b6c"/>
                 <rect x="0" y="92" width="34" height="16" fill="#0a6e97"/><rect x="66" y="88" width="34" height="14" fill="#7d1645"/>
-                <text x="17" y="196" text-anchor="middle" font-size="18" fill="#0f2433">Z</text><text x="83" y="196" text-anchor="middle" font-size="18" fill="#0f2433">W</text>
+                <text x="17" y="196" text-anchor="middle" font-size="18" fill="#e9f3f7">Z</text><text x="83" y="196" text-anchor="middle" font-size="18" fill="#e9f3f7">W</text>
               </g>
-              <text x="320" y="142" text-anchor="middle" font-size="14" fill="#3a5161">dark stripe:</text>
-              <text x="320" y="160" text-anchor="middle" font-size="14" fill="#3a5161">the CHD1 gene</text>
+              <text x="320" y="142" text-anchor="middle" font-size="14" fill="#a3b9c4">dark stripe:</text>
+              <text x="320" y="160" text-anchor="middle" font-size="14" fill="#a3b9c4">the CHD1 gene</text>
               <!-- gels -->
               <g transform="translate(60 300)">
                 <rect width="200" height="180" rx="4" fill="#143a50"/><rect x="70" y="14" width="60" height="9" rx="2" fill="#0a1f2c"/>
@@ -234,7 +250,7 @@
                 <rect x="72" y="92" width="56" height="8" rx="3" fill="#bfe6f5"/><rect x="72" y="112" width="56" height="8" rx="3" fill="#bfe6f5"/>
                 <text x="100" y="168" text-anchor="middle" font-size="15" fill="#d6e6ee">two bands</text>
               </g>
-              <text x="320" y="508" text-anchor="middle" font-size="14" fill="#3a5161">The Z and W copies differ in length, so they stop at different heights.</text>
+              <text x="320" y="508" text-anchor="middle" font-size="14" fill="#a3b9c4">The Z and W copies differ in length, so they stop at different heights.</text>
             </g>
           </svg>
           <figcaption>Why one band means male and two bands mean female.</figcaption>
@@ -243,7 +259,7 @@
     </section>
 
     <!-- Sanger -->
-    <section class="sci gel-field" id="sanger" aria-labelledby="sanger-title">
+    <section data-scene="chromatogram" class="sci gel-field" id="sanger" aria-labelledby="sanger-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="sanger-title" data-reveal>Sanger sequencing, base by base.</h2>
@@ -262,7 +278,7 @@
     </section>
 
     <!-- Barcoding -->
-    <section class="sci sci--flip" id="barcoding" aria-labelledby="bar-title">
+    <section data-scene="barcode" class="sci sci--flip" id="barcoding" aria-labelledby="bar-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="bar-title" data-reveal>A barcode for every species.</h2>
@@ -286,7 +302,7 @@
     </section>
 
     <!-- eDNA -->
-    <section class="sci gel-field" id="edna" aria-labelledby="edna-title">
+    <section data-scene="water" class="sci gel-field" id="edna" aria-labelledby="edna-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="edna-title" data-reveal>DNA left behind in water.</h2>
@@ -317,7 +333,7 @@
     </section>
 
     <!-- Microbes -->
-    <section class="sci sci--flip" id="microbes" aria-labelledby="mic-title">
+    <section data-scene="cells" class="sci sci--flip" id="microbes" aria-labelledby="mic-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="mic-title" data-reveal>The microbes in a ferment.</h2>
@@ -337,7 +353,7 @@
     </section>
 
     <!-- Limits -->
-    <section class="sci field-2" id="limits" aria-labelledby="lim-title">
+    <section data-scene="cloud" class="sci field-2" id="limits" aria-labelledby="lim-title">
       <div class="wrap sci__grid">
         <div class="sci__text prose">
           <h2 id="lim-title" data-reveal>What DNA can't tell you.</h2>
@@ -356,7 +372,7 @@
     </section>
 
     <!-- References -->
-    <section class="section" id="refs" aria-labelledby="refs-title">
+    <section data-scene="cloud" class="section" id="refs" aria-labelledby="refs-title">
       <div class="wrap">
         <h2 id="refs-title" style="margin-bottom:40px" data-reveal>References.</h2>
         <ol class="refs" data-reveal>
@@ -378,7 +394,7 @@
       </div>
     </section>
 
-    <section class="section gel-field" aria-labelledby="cta-title">
+    <section data-scene="wordmark" class="section gel-field" aria-labelledby="cta-title">
       <div class="wrap cta">
         <h2 id="cta-title" data-reveal>Put the science to work.</h2>
         <div class="cta__side" data-reveal>
@@ -408,7 +424,10 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
   <script src="./assets/js/site.js" defer></script>
+  <script src="./assets/js/fx.js" defer></script>
   <script src="./assets/js/chat.js" defer></script>
+  <script type="module" src="./assets/js/scene.js"></script>
 </body>
 </html>

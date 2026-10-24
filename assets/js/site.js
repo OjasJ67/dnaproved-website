@@ -313,26 +313,42 @@
     gsap.registerPlugin(ST);
     if (window.SplitText) gsap.registerPlugin(window.SplitText);
 
+    // The first screen waits for the preloader (if any) to lift.
+    var intro = root.classList.contains("is-loading")
+      ? Promise.race([new Promise(function (r) { document.addEventListener("dna:intro", r, { once: true }); }), new Promise(function (r) { setTimeout(r, 5000); })])
+      : Promise.resolve();
+    var fontsReady = Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(function (r) { setTimeout(r, 1200); })]);
+
     // Headline: words rise into place once the typeface is ready.
     $$("[data-split]").forEach(function (h) {
-      var go = function () {
+      Promise.all([fontsReady, intro]).then(function () {
         gsap.set(h, { opacity: 1 });
         if (!window.SplitText) return;
         var split = new window.SplitText(h, { type: "words,lines", linesClass: "split-line" });
-        gsap.from(split.words, { yPercent: 110, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.06 });
-      };
-      var timeout = new Promise(function (r) { setTimeout(r, 1200); });
-      Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), timeout]).then(go);
+        gsap.from(split.words, { yPercent: 110, rotate: 4, opacity: 0, duration: 1.1, ease: "expo.out", stagger: 0.07 });
+      });
     });
 
     // Section parts enter in order: heading, text, picture.
+    var firstSection = $("main section");
     $$("main section, main article").forEach(function (sec) {
       var items = $$("[data-reveal]", sec).filter(function (el) { return el.closest("section, article") === sec; });
       if (!items.length) return;
+      if (sec === firstSection) {
+        intro.then(function () {
+          gsap.fromTo(items, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.09, delay: 0.35 });
+        });
+        return;
+      }
       gsap.fromTo(items, { y: 28, opacity: 0 }, {
         y: 0, opacity: 1, duration: 0.8, ease: "power3.out", stagger: 0.08,
         scrollTrigger: { trigger: sec, start: "top 82%", once: true }
       });
+    });
+
+    // Carousel cards rise in once as the carousel arrives.
+    $$(".carousel").forEach(function (c) {
+      gsap.fromTo($$(".card__inner", c), { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: "expo.out", stagger: 0.1, scrollTrigger: { trigger: c, start: "top 70%", once: true }, clearProps: "transform" });
     });
 
     // Counting statistics.
@@ -382,7 +398,7 @@
       var traces = $$(".trace", box);
       traces.forEach(function (p) { var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
       gsap.to(traces, { strokeDashoffset: 0, duration: 2.4, ease: "power1.inOut", stagger: 0.15, scrollTrigger: { trigger: box, start: "top 75%", once: true } });
-      gsap.from($$(".call", box), { opacity: 0, y: 6, duration: 0.3, stagger: 0.025, delay: 0.6, scrollTrigger: { trigger: box, start: "top 75%", once: true } });
+      if ($(".call", box).length) gsap.from($(".call", box), { opacity: 0, y: 6, duration: 0.3, stagger: 0.025, delay: 0.6, scrollTrigger: { trigger: box, start: "top 75%", once: true } });
     });
 
     document.fonts && document.fonts.ready.then(function () { ST.refresh(); });
